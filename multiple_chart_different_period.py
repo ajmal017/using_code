@@ -56,7 +56,7 @@ while st1 not in raw_data1['Date'].values:
 else: pass
 
 while et1 not in raw_data1['Date'].values:
-    ed1 += datetime.timedelta(days=1)
+    ed1 -= datetime.timedelta(days=1)
     et1 = dt.strftime(ed1,"%Y-%m-%d")
     print(ed1)
 else: pass
@@ -68,7 +68,7 @@ while st2 not in raw_data2['Date'].values:
 else: pass
 
 while et2 not in raw_data2['Date'].values:
-    ed2 += datetime.timedelta(days=1)
+    ed2 -= datetime.timedelta(days=1)
     et2 = dt.strftime(ed2,"%Y-%m-%d")
     print(ed2)
 else: pass
@@ -80,7 +80,7 @@ while st3 not in raw_data3['Date'].values:
 else: pass
 
 while et3 not in raw_data3['Date'].values:
-    ed3 += datetime.timedelta(days=1)
+    ed3 -= datetime.timedelta(days=1)
     et3 = dt.strftime(ed3,"%Y-%m-%d")
     print(ed3)
 else: pass

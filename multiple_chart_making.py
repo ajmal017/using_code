@@ -10,9 +10,9 @@ from matplotlib import rc
 rc('font', family="Batang")
 
 # tickers
-ticker1 = '삼성전자우'
-ticker2 = 'soxx'
-ticker3 = '삼성전자'
+ticker1 = 'HD'
+ticker2 = 'MSFT'
+ticker3 = 'PLD'
 
 # file path
 read_ticker1 = './db/' + ticker1.upper() + '.csv'
@@ -42,7 +42,7 @@ while st not in raw_data1['Date'].values:
 else: pass
 
 while et not in raw_data1['Date'].values:
-    ed += datetime.timedelta(days=1)
+    ed -= datetime.timedelta(days=1)
     et = dt.strftime(ed,"%Y-%m-%d")
     print(ed)
 else: pass
@@ -83,4 +83,9 @@ plt.legend(loc='lower right')
 
 ax3.xaxis.set_major_locator(ticker.MultipleLocator(xtick_interval))
 fig.tight_layout()
+
+out_path = './charts/' + '{}_{}_{}_{}.png'.format\
+    (ticker1, ticker2, ticker3, sd.strftime("%y%m"))
+plt.savefig(out_path)
+
 plt.show()
