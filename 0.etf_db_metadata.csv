@@ -1,0 +1,419 @@
+Symbol,ETF Name,Sort,Total Assets ,Inverse,Leveraged
+XLK,Technology Select Sector SPDR Fund,Sector,"$27,930,436,640.00 ",,
+XLF,Financial Select Sector SPDR Fund,Sector,"$26,309,676,859.00 ",,
+XLV,Health Care Select Sector SPDR Fund,Sector,"$20,863,143,896.00 ",,
+XLY,Consumer Discretionary Select Sector SPDR Fund,Sector,"$15,713,946,866.00 ",,
+XLP,Consumer Staples Select Sector SPDR Fund,Sector,"$13,364,191,294.00 ",,
+XLI,Industrial Select Sector SPDR Fund,Sector,"$12,952,238,876.00 ",,
+XLU,Utilities Select Sector SPDR Fund,Sector,"$11,125,605,581.00 ",,
+XLE,Energy Select Sector SPDR Fund,Sector,"$10,785,732,821.00 ",,
+XLC,Communication Services Select Sector SPDR Fund,Sector,"$7,439,731,556.00 ",,
+XBI,SPDR S&P Biotech ETF,Sector,"$4,514,335,394.00 ",,
+XLB,Materials Select Sector SPDR ETF,Sector,"$4,196,973,631.00 ",,
+XLRE,Real Estate Select Sector SPDR Fund,Sector,"$3,870,756,175.00 ",,
+XT,iShares Exponential Technologies ETF,Sector,"$2,816,963,058.00 ",,
+XOP,SPDR S&P Oil & Gas Exploration & Production ETF,Sector,"$2,464,082,799.00 ",,
+XAR,SPDR S&P Aerospace & Defense ETF,Sector,"$2,220,754,364.00 ",,
+XHB,SPDR S&P Homebuilders ETF,Sector,"$811,696,940.00 ",,
+XME,SPDR S&P Metals & Mining ETF,Sector,"$590,298,511.00 ",,
+XHE,SPDR S&P Health Care Equipment ETF,Sector,"$574,302,443.00 ",,
+XSD,SPDR S&P Semiconductor ETF,Sector,"$539,485,147.00 ",,
+XSW,SPDR S&P Software & Services ETF,Sector,"$244,147,585.00 ",,
+XPH,SPDR S&P Pharmaceuticals ETF,Sector,"$233,980,625.00 ",,
+XRT,SPDR S&P Retail ETF,Sector,"$208,834,410.00 ",,
+XES,SPDR S&P Oil & Gas Equipment & Services ETF,Sector,"$168,779,827.00 ",,
+XTN,SPDR S&P Transportation ETF,Sector,"$129,173,243.00 ",,
+XHS,SPDR S&P Health Care Services ETF,Sector,"$103,751,220.00 ",,
+XTL,SPDR S&P Telecom ETF,Sector,"$48,976,446.00 ",,
+XWEB,SPDR S&P Internet ETF,Sector,"$20,474,570.00 ",,
+XTH,SPDR S&P Technology Hardware ETF,Sector,"$4,331,192.00 ",,
+QQQ,Invesco QQQ,Sector,"$92,527,856,101.00 ",,
+VNQ,Vanguard Real Estate Index Fund,Sector,"$37,761,614,393.00 ",,
+VGT,Vanguard Information Technology ETF,Sector,"$27,370,262,312.00 ",,
+GDX,VanEck Vectors Gold Miners ETF,Sector,"$13,002,421,810.00 ",,
+AMLP,Alerian MLP ETF,Sector,"$8,108,977,232.00 ",,
+IBB,iShares Nasdaq Biotechnology ETF,Sector,"$7,541,165,580.00 ",,
+SCHH,Schwab US REIT ETF,Sector,"$6,146,297,323.00 ",,
+VNQI,Vanguard Global ex-U.S. Real Estate Index Fund ETF,Sector,"$5,881,145,368.00 ",,
+IYR,iShares U.S. Real Estate ETF,Sector,"$4,226,610,936.00 ",,
+IGF,iShares Global Infrastructure ETF,Sector,"$3,575,863,098.00 ",,
+SOXX,iShares PHLX Semiconductor ETF,Sector,"$2,470,085,500.00 ",,
+KBE,SPDR S&P Bank ETF,Sector,"$1,821,972,021.00 ",,
+IEV,iShares Europe ETF,Sector,"$1,770,171,245.00 ",,
+SH,ProShares Short S&P 500,Leveraged,"$1,743,027,653.00 ",Yes,No
+SQQQ,ProShares UltraPro Short QQQ,Leveraged,"$1,029,008,702.00 ",Yes,3x
+SDS,ProShares UltraShort S&P 500,Leveraged,"$979,395,508.00 ",Yes,2x
+TBT,UltraShort Barclays 20+ Year Treasury,Leveraged,"$587,969,467.00 ",Yes,2x
+SPXU,ProShares UltraPro Short S&P 500,Leveraged,"$552,966,850.00 ",Yes,3x
+PSQ,ProShares Short QQQ,Leveraged,"$511,070,124.00 ",Yes,No
+SPXS,Direxion Daily S&P 500 Bear 3X Shares,Leveraged,"$450,479,046.00 ",Yes,3x
+DUST,Direxion Daily Gold Miners Bear 3X Shares,Leveraged,"$335,020,688.00 ",Yes,3x
+SVXY,ProShares Short VIX Short-Term Futures,Leveraged,"$324,941,023.00 ",Yes,0.5x
+DWT,VelocityShares 3x Inverse Crude Oil ETN,Leveraged,"$319,037,454.00 ",Yes,3x
+TZA,Direxion Daily Small Cap Bear 3X Shares,Leveraged,"$311,719,153.00 ",Yes,3x
+QID,ProShares UltraShort QQQ,Leveraged,"$266,529,239.00 ",Yes,2x
+SDOW,ProShares UltraPro Short Dow30,Leveraged,"$235,326,151.00 ",Yes,3x
+TBF,ProShares Short 20+ Year Treasury,Leveraged,"$221,002,979.00 ",Yes,No
+RWM,ProShares Short Russell 2000,Leveraged,"$219,723,020.00 ",Yes,No
+DOG,ProShares Short Dow 30,Leveraged,"$219,239,575.00 ",Yes,No
+SOXS,Direxion Daily Semiconductor Bear 3x Shares,Leveraged,"$201,622,458.00 ",Yes,3x
+LABD,Direxion Daily S&P Biotech Bear 3x Shares,Leveraged,"$159,303,275.00 ",Yes,3x
+FAZ,Direxion Daily Financial Bear 3X Shares,Leveraged,"$155,503,998.00 ",Yes,3x
+DGAZ,VelocityShares 3x Inverse Natural Gas,Leveraged,"$151,384,502.00 ",Yes,3x
+JDST,Direxion Daily Junior Gold Miners Index Bear 3X Shares,Leveraged,"$142,052,578.00 ",Yes,3x
+DXD,ProShares UltraShort Dow 30,Leveraged,"$130,861,507.00 ",Yes,2x
+EUO,ProShares UltraShort Euro,Leveraged,"$120,808,284.00 ",Yes,2x
+TMV,Direxion Daily 20-Year Treasury Bear 3X,Leveraged,"$115,951,987.00 ",Yes,3x
+HDGE,AdvisorShares Ranger Equity Bear ETF,Leveraged,"$109,232,581.00 ",Yes,No
+SJB,ProShares Short High Yield,Leveraged,"$106,564,084.00 ",Yes,No
+SCO,ProShares UltraShort Bloomberg Crude Oil,Leveraged,"$102,969,767.00 ",Yes,2x
+OILD,ProShares UltraPro 3x Short Crude Oil ETF,Leveraged,"$90,989,837.00 ",Yes,3x
+TWM,ProShares Ultra Short Russell 2000,Leveraged,"$77,916,035.00 ",Yes,2x
+ZIV,VelocityShares Daily Inverse VIX Medium Term ETN,Leveraged,"$72,383,259.00 ",Yes,No
+YANG,Direxion Daily China 3x Bear Shares,Leveraged,"$65,845,235.00 ",Yes,3x
+DRIP,Direxion Daily S&P Oil & Gas Exploration & Production Bear 3x Shares,Leveraged,"$62,666,444.00 ",Yes,3x
+SRTY,ProShares UltraPro Short Russell2000,Leveraged,"$61,200,939.00 ",Yes,3x
+EDZ,Direxion Daily Emerging Markets Bear 3X Shares,Leveraged,"$56,290,954.00 ",Yes,3x
+EUM,Short MSCI Emerging Markets ProShares,Leveraged,"$49,604,580.00 ",Yes,No
+YGRN,MicroSectors U.S. Big Oil Index Inverse ETN,Leveraged,"$46,950,416.00 ",Yes,No
+TECS,Direxion Daily Technology Bear 3X Shares,Leveraged,"$46,158,557.00 ",Yes,3x
+UDN,Invesco DB US Dollar Index Bearish Fund,Leveraged,"$44,522,253.00 ",Yes,No
+NRGZ,MicroSectors U.S. Big Oil Index -2X Inverse Leveraged ETN,Leveraged,"$42,537,791.00 ",Yes,2x
+PST,UltraShort Barclays 7-10 Year Treasury,Leveraged,"$40,359,400.00 ",Yes,2x
+YCS,ProShares UltraShort Yen,Leveraged,"$39,233,293.00 ",Yes,2x
+GNAF,MicroSectors FANG+ Index Inverse ETN,Leveraged,"$37,308,174.00 ",Yes,No
+NRGD,MicroSectors U.S. Big Oil Index -3X Inverse Leveraged ETN,Leveraged,"$37,201,233.00 ",Yes,3x
+FXP,ProShares UltraShort China 50,Leveraged,"$32,764,598.00 ",Yes,2x
+ERY,Direxion Daily Energy Bear 3X Shares,Leveraged,"$31,170,522.00 ",Yes,3x
+TTT,UltraPro Short 20+ Year Treasury,Leveraged,"$30,127,776.00 ",Yes,3x
+BZQ,ProShares UltraShort MSCI Brazil,Leveraged,"$28,258,431.00 ",Yes,2x
+FNGZ,MicroSectors FANG+ Index -2X Inverse Leveraged ETN,Leveraged,"$25,030,294.00 ",Yes,2x
+SKF,ProShares Ultra Short Financials,Leveraged,"$24,005,709.00 ",Yes,2x
+DSLV,VelocityShares 3x Inverse Silver ETN,Leveraged,"$23,144,344.00 ",Yes,3x
+DTYS,iPath US Treasury 10-year Bear Exchange Traded Note,Leveraged,"$22,166,008.00 ",Yes,No
+FNGD,MicroSectors FANG+??Index -3X Inverse Leveraged ETN,Leveraged,"$21,294,606.00 ",Yes,3x
+BIS,ProShares UltraShort Nasdaq Biotechnology,Leveraged,"$20,781,048.00 ",Yes,2x
+TBX,ProShares Short 7-10 Year Treasury,Leveraged,"$20,458,264.00 ",Yes,No
+EXIV,VelocityShares 1X Daily Inverse VSTOXX Futures ETN,Leveraged,"$20,117,440.00 ",Yes,No
+KNAB,MicroSectors U.S. Big Banks Index Inverse ETN,Leveraged,"$19,987,870.00 ",Yes,No
+RUSS,Direxion Daily Russia Bear 3x Shares,Leveraged,"$19,150,083.00 ",Yes,3x
+GASX,Direxion Daily Natural Gas Related Bear 3X Shares,Leveraged,"$18,064,880.00 ",Yes,3x
+SRS,ProShares Ultra Short Real Estate,Leveraged,"$17,662,053.00 ",Yes,2x
+GLL,ProShares UltraShort Gold,Leveraged,"$17,500,027.00 ",Yes,2x
+CHAD,Direxion Daily CSI 300 China A Share Bear 1X Shares,Leveraged,"$17,261,200.00 ",Yes,No
+SPDN,Direxion Daily S&P 500 Bear 1x Shares,Leveraged,"$16,592,836.00 ",Yes,No
+DGLD,VelocityShares 3x Inverse Gold ETN,Leveraged,"$16,536,735.00 ",Yes,3x
+DUG,ProShares Ultra Short Oil & Gas,Leveraged,"$16,507,730.00 ",Yes,2x
+SEF,Short Financials ProShares,Leveraged,"$15,550,075.00 ",Yes,No
+BNKZ,MicroSectors U.S. Big Banks Index -2x Inverse Leveraged ETN,Leveraged,"$15,516,540.00 ",Yes,2x
+EFZ,Short MSCI EAFE ProShares,Leveraged,"$14,962,369.00 ",Yes,No
+ZSL,ProShares UltraShort Silver,Leveraged,"$14,869,703.00 ",Yes,2x
+KOLD,ProShares UltraShort Bloomberg Natural Gas,Leveraged,"$14,636,147.00 ",Yes,2x
+DRR,Market Vectors Double Short Euro ETN,Leveraged,"$14,425,831.00 ",Yes,2x
+DRV,Direxion Daily Real Estate Bear 3x Shares,Leveraged,"$13,493,219.00 ",Yes,3x
+DTO,DB Crude Oil Double Short ETN,Leveraged,"$12,936,824.00 ",Yes,2x
+EEV,UltraShort MSCI Emerging Markets,Leveraged,"$12,893,659.00 ",Yes,2x
+DZZ,DB Gold Double Short ETN,Leveraged,"$12,653,416.00 ",Yes,2x
+BNKD,MicroSectors U.S. Big Banks Index -3x Inverse Leveraged ETN,Leveraged,"$11,704,787.00 ",Yes,3x
+EPV,ProShares UltraShort Europe,Leveraged,"$11,096,016.00 ",Yes,2x
+TYO,Direxion Daily 7-10 Year Treasury Bear 3X,Leveraged,"$10,827,722.00 ",Yes,3x
+MYY,ProShares Short Midcap 400,Leveraged,"$10,520,874.00 ",Yes,No
+EMTY,ProShares Decline of the Retail Store ETF,Leveraged,"$8,575,330.00 ",Yes,No
+TAPR,Barclays Inverse U.S. Treasury Aggregate ETN,Leveraged,"$7,788,722.00 ",Yes,No
+DGZ,DB Gold Short ETN,Leveraged,"$7,410,219.00 ",Yes,No
+SSG,ProShares Ultra Short Semiconductors,Leveraged,"$7,199,099.00 ",Yes,2x
+REK,ProShares Short Real Estate,Leveraged,"$6,931,931.00 ",Yes,No
+DLBS,iPath US Treasury Long Bond Bear Exchange Traded Note,Leveraged,"$5,916,768.00 ",Yes,No
+CROC,ProShares UltraShort Australian Dollar,Leveraged,"$5,857,893.00 ",Yes,2x
+EWV,UltraShort MSCI Japan ProShares,Leveraged,"$5,286,451.00 ",Yes,2x
+SMN,ProShares Ultra Short Basic Materials,Leveraged,"$5,201,812.00 ",Yes,2x
+YXI,ProShares Short FTSE China 50,Leveraged,"$5,181,771.00 ",Yes,No
+FLAT,iPath US Treasury Flattener Exchange Traded Note,Leveraged,"$4,807,544.00 ",Yes,No
+SDP,ProShares Ultra Short Utilities,Leveraged,"$4,639,268.00 ",Yes,2x
+WTID,ProShares Daily 3x Inverse Crude ETN,Leveraged,"$3,760,110.00 ",Yes,3x
+DFVS,iPath US Treasury 5-year Bear ETN,Leveraged,"$3,604,408.00 ",Yes,No
+REW,ProShares Ultra Short Technology,Leveraged,"$3,595,655.00 ",Yes,2x
+SBB,ProShares Short Small Cap 600,Leveraged,"$3,485,361.00 ",Yes,No
+ZBIO,ProShares UltraPro Short Nasdaq Biotechnology,Leveraged,"$3,096,461.00 ",Yes,3x
+SAGG,Direxion Daily Total Bond Market Bear 1x Shares,Leveraged,"$2,947,783.00 ",Yes,No
+MZZ,ProShares UltraShort Midcap 400,Leveraged,"$2,778,749.00 ",Yes,2x
+DLBR,VelocityShares Short LIBOR ETN,Leveraged,"$2,722,984.00 ",Yes,No
+WEBS,Daily Dow Jones Internet Bear 3X Shares,Leveraged,"$2,721,284.00 ",Yes,3x
+HIBS,Direxion Daily S&P 500 High Beta Bear 3X Shares,Leveraged,"$2,709,725.00 ",Yes,3x
+SMDD,ProShares UltraPro Short MidCap400,Leveraged,"$2,466,818.00 ",Yes,3x
+MIDZ,Direxion Daily Mid Cap Bear 3X Shares,Leveraged,"$2,462,441.00 ",Yes,3x
+SDD,ProShares Ultra Short Small Cap 600,Leveraged,"$2,411,501.00 ",Yes,2x
+DTUS,iPath US Treasury 2-year Bear Exchange Traded Note,Leveraged,"$2,324,821.00 ",Yes,No
+EUFX,ProShares Short Euro,Leveraged,"$2,313,234.00 ",Yes,No
+DPK,Direxion Daily Developed Markets Bear 3X Shares,Leveraged,"$2,222,766.00 ",Yes,3x
+WDRW,Direxion Daily Regional Banks Bear 3X Shares,Leveraged,"$1,905,185.00 ",Yes,3x
+DDG,Short Oil & Gas ProShares,Leveraged,"$1,874,483.00 ",Yes,No
+RXD,ProShares Ultra Short Health Care,Leveraged,"$1,804,262.00 ",Yes,2x
+TYBS,Direxion Daily 20+ Year Treasury Bear 1x Shares,Leveraged,"$1,750,703.00 ",Yes,No
+SBM,ProShares Short Basic Materials,Leveraged,"$1,738,025.00 ",Yes,No
+EFU,UltraShort MSCI EAFE ProShares,Leveraged,"$1,716,042.00 ",Yes,2x
+SZK,ProShares Ultra Short Consumer Goods,Leveraged,"$1,674,096.00 ",Yes,2x
+FINZ,ProShares UltraPro Short Financials,Leveraged,"$1,601,565.00 ",Yes,3x
+SIJ,ProShares Ultra Short Industrials,Leveraged,"$1,392,050.00 ",Yes,2x
+PASS,Direxion Daily Consumer Discretionary Bear 3X Shares,Leveraged,"$1,260,475.00 ",Yes,3x
+SCC,ProShares Ultra Short Consumer Services,Leveraged,"$778,050.00 ",Yes,2x
+LACK,Direxion Daily Consumer Staples Bear 3X Shares,Leveraged,"$724,641.00 ",Yes,3x
+YCOM,ProShares UltraShort Communication Services Select Sector ETF,Leveraged,"$582,134.00 ",Yes,2x
+MUTE,Direxion Daily Communication Services Index Bear 3X Shares,Leveraged,"$524,802.00 ",Yes,3x
+SCOM,ProShares UltraPro Short Communication Services Select Sector ETF,Leveraged,"$429,581.00 ",Yes,3x
+TQQQ,ProShares UltraPro QQQ,Leveraged,"$5,062,726,362.00 ",No,3x
+SSO,ProShares Ultra S&P 500,Leveraged,"$3,094,015,485.00 ",No,2x
+FLGE,Credit Suisse FI Large Cap Growth Enhanced ETN,Leveraged,"$2,789,581,900.00 ",No,2x
+QLD,ProShares Ultra QQQ,Leveraged,"$2,579,653,444.00 ",No,2x
+FIHD,UBS AG FI Enhanced Global High Yield ETN,Leveraged,"$1,991,528,358.00 ",No,2x
+UPRO,ProShares UltraPro S&P 500,Leveraged,"$1,609,057,992.00 ",No,3x
+FAS,Direxion Daily Financial Bull 3X Shares,Leveraged,"$1,605,535,818.00 ",No,3x
+FBGX,UBS AG FI Enhanced Large Cap Growth ETN,Leveraged,"$1,546,665,660.00 ",No,2x
+NUGT,Direxion Daily Gold Miners Bull 3X Shares,Leveraged,"$1,499,883,179.00 ",No,3x
+FRLG,GS Finance Large Cap Growth Index-Linked ETN,Leveraged,"$1,403,567,640.00 ",No,2x
+TECL,Direxion Daily Technology Bull 3X Shares,Leveraged,"$1,302,170,720.00 ",No,3x
+FIYY,Barclays ETN+ FI Enhanced Global High Yield ETNs Series B,Leveraged,"$1,273,990,316.00 ",No,2x
+SPXL,Direxion Daily S&P 500 Bull 3X Shares,Leveraged,"$1,189,915,440.00 ",No,3x
+SQQQ,ProShares UltraPro Short QQQ,Leveraged,"$1,029,008,702.00 ",Yes,3x
+JNUG,Direxion Daily Junior Gold Miners Index Bull 3x Shares,Leveraged,"$994,015,718.00 ",No,3x
+SDS,ProShares UltraShort S&P 500,Leveraged,"$979,395,508.00 ",Yes,2x
+SOXL,Direxion Daily Semiconductor Bull 3x Shares,Leveraged,"$909,491,353.00 ",No,3x
+UYG,ProShares Ultra Financials,Leveraged,"$870,310,537.00 ",No,2x
+UGAZ,VelocityShares 3x Long Natural Gas,Leveraged,"$740,633,415.00 ",No,3x
+TNA,Direxion Daily Small Cap Bull 3X Shares,Leveraged,"$711,242,742.00 ",No,3x
+TVIX,VelocityShares Daily 2x VIX Short Term ETN,Leveraged,"$624,178,226.00 ",No,2x
+TBT,UltraShort Barclays 20+ Year Treasury,Leveraged,"$587,969,467.00 ",Yes,2x
+SPXU,ProShares UltraPro Short S&P 500,Leveraged,"$552,966,850.00 ",Yes,3x
+ROM,ProShares Ultra Technology,Leveraged,"$505,332,164.00 ",No,2x
+UVXY,ProShares Ultra VIX Short-Term Futures,Leveraged,"$478,257,174.00 ",No,1.5x
+LABU,Direxion Daily S&P Biotech Bull 3x Shares,Leveraged,"$456,481,059.00 ",No,3x
+UDOW,ProShares UltraPro Dow30,Leveraged,"$452,443,279.00 ",No,3x
+SPXS,Direxion Daily S&P 500 Bear 3X Shares,Leveraged,"$450,479,046.00 ",Yes,3x
+MORL,ETRACS Monthly Pay 2xLeveraged Mortgage REIT ETN,Leveraged,"$416,093,000.00 ",No,2x
+YINN,Direxion Daily China 3x Bull Shares,Leveraged,"$392,987,367.00 ",No,3x
+FEUL,Credit Suisse FI Enhanced Europe 50 ETN,Leveraged,"$387,436,312.00 ",No,2x
+DDM,ProShares Ultra Dow30,Leveraged,"$385,323,409.00 ",No,2x
+BRZU,Direxion Daily Brazil Bull 3X Shares,Leveraged,"$351,978,227.00 ",No,3x
+USLV,VelocityShares 3x Long Silver ETN,Leveraged,"$343,629,588.00 ",No,3x
+DUST,Direxion Daily Gold Miners Bear 3X Shares,Leveraged,"$335,020,688.00 ",Yes,3x
+SVXY,ProShares Short VIX Short-Term Futures,Leveraged,"$324,941,023.00 ",Yes,0.5x
+DWT,VelocityShares 3x Inverse Crude Oil ETN,Leveraged,"$319,037,454.00 ",Yes,3x
+TZA,Direxion Daily Small Cap Bear 3X Shares,Leveraged,"$311,719,153.00 ",Yes,3x
+MRRL,ETRACS Monthly Pay 2xLeveraged Mortgage REIT ETN,Leveraged,"$308,029,146.00 ",No,2x
+UCO,ProShares Ultra Bloomberg Crude Oil,Leveraged,"$296,146,510.00 ",No,2x
+ERX,Direxion Daily Energy Bull 3X Shares,Leveraged,"$268,330,694.00 ",No,3x
+QID,ProShares UltraShort QQQ,Leveraged,"$266,529,239.00 ",Yes,2x
+UWT,VelocityShares 3x Long Crude Oil ETN,Leveraged,"$264,950,317.00 ",No,3x
+EDC,Direxion Daily Emerging Markets Bull 3X Shares,Leveraged,"$251,424,999.00 ",No,3x
+FNGU,MicroSectors FANG+??Index 3X Inverse Leveraged ETN,Leveraged,"$243,097,569.00 ",No,3x
+SDOW,ProShares UltraPro Short Dow30,Leveraged,"$235,326,151.00 ",Yes,3x
+CEFL,ETRACS Monthly Pay 2xLeveraged Closed-End Fund ETN,Leveraged,"$232,543,860.00 ",No,2x
+AGQ,ProShares Ultra Silver,Leveraged,"$230,182,570.00 ",No,2x
+UWM,ProShares Ultra Russell2000,Leveraged,"$219,790,785.00 ",No,2x
+UGLD,VelocityShares 3x Long Gold ETN,Leveraged,"$208,319,678.00 ",No,3x
+SOXS,Direxion Daily Semiconductor Bear 3x Shares,Leveraged,"$201,622,458.00 ",Yes,3x
+TMF,Direxion Daily 20-Year Treasury Bull 3X,Leveraged,"$187,643,431.00 ",No,3x
+BDCL,UBS E-TRACS 2x Leveraged Wells Fargo Business Development Company ETN,Leveraged,"$184,907,130.00 ",No,2x
+BIB,ProShares Ultra Nasdaq Biotechnology,Leveraged,"$179,276,226.00 ",No,2x
+CURE,Direxion Daily Healthcare Bull 3x Shares,Leveraged,"$174,568,989.00 ",No,3x
+GUSH,Direxion Daily S&P Oil & Gas Exploration & Production Bull 3x Shares,Leveraged,"$171,365,232.00 ",No,3x
+MVV,ProShares Ultra Midcap 400,Leveraged,"$164,145,774.00 ",No,2x
+LABD,Direxion Daily S&P Biotech Bear 3x Shares,Leveraged,"$159,303,275.00 ",Yes,3x
+FAZ,Direxion Daily Financial Bear 3X Shares,Leveraged,"$155,503,998.00 ",Yes,3x
+DGAZ,VelocityShares 3x Inverse Natural Gas,Leveraged,"$151,384,502.00 ",Yes,3x
+CHAU,Direxion Daily CSI 300 China A Share Bull 2x Shares,Leveraged,"$148,014,751.00 ",No,2x
+URE,ProShares Ultra Real Estate,Leveraged,"$146,444,141.00 ",No,2x
+JDST,Direxion Daily Junior Gold Miners Index Bear 3X Shares,Leveraged,"$142,052,578.00 ",Yes,3x
+DXD,ProShares UltraShort Dow 30,Leveraged,"$130,861,507.00 ",Yes,2x
+RXL,ProShares Ultra Health Care,Leveraged,"$130,365,968.00 ",No,2x
+EUO,ProShares UltraShort Euro,Leveraged,"$120,808,284.00 ",Yes,2x
+DGP,DB Gold Double Long ETN,Leveraged,"$116,000,562.00 ",No,2x
+TMV,Direxion Daily 20-Year Treasury Bear 3X,Leveraged,"$115,951,987.00 ",Yes,3x
+UGL,ProShares Ultra Gold,Leveraged,"$113,533,595.00 ",No,2x
+USD,ProShares Ultra Semiconductors,Leveraged,"$102,977,993.00 ",No,2x
+SCO,ProShares UltraShort Bloomberg Crude Oil,Leveraged,"$102,969,767.00 ",Yes,2x
+MLPQ,ETRACS 2xMonthly Leveraged Alerian MLP Infrastructure Index ETN,Leveraged,"$100,379,310.00 ",No,2x
+REML,Credit Suisse X-Links Monthly Pay 2xLeveraged Mortgage REIT ETN,Leveraged,"$99,609,285.00 ",No,2x
+URTY,ProShares UltraPro Russell2000,Leveraged,"$99,244,245.00 ",No,3x
+OILD,ProShares UltraPro 3x Short Crude Oil ETF,Leveraged,"$90,989,837.00 ",Yes,3x
+CEFZ,ETRACS Monthly Pay 2xLeveraged Closed-End Fund ETN Series B,Leveraged,"$86,949,670.00 ",No,2x
+LBDC,ETRACS 2xLeveraged Long Wells Fargo Business Development Company Index ETN,Leveraged,"$85,816,210.00 ",No,2x
+RUSL,Direxion Daily Russia Bull 3x Shares,Leveraged,"$84,623,886.00 ",No,3x
+CWEB,Direxion Daily CSI China Internet Index Bull 2x Shares,Leveraged,"$78,850,686.00 ",No,2x
+INDL,Direxion Daily India Bull 3x Shares,Leveraged,"$78,035,590.00 ",No,3x
+TWM,ProShares Ultra Short Russell 2000,Leveraged,"$77,916,035.00 ",Yes,2x
+OILU,ProShares UltraPro 3x Crude Oil ETF,Leveraged,"$77,874,443.00 ",No,3x
+DFEN,Direxion Daily Aerospace & Defense Bull 3X Shares,Leveraged,"$71,955,095.00 ",No,3x
+DIG,ProShares Ultra Oil & Gas,Leveraged,"$68,551,111.00 ",No,2x
+YANG,Direxion Daily China 3x Bear Shares,Leveraged,"$65,845,235.00 ",Yes,3x
+FNGO,MicroSectors FANG+ Index 2X Leveraged ETN,Leveraged,"$64,457,332.00 ",No,2x
+DRIP,Direxion Daily S&P Oil & Gas Exploration & Production Bear 3x Shares,Leveraged,"$62,666,444.00 ",Yes,3x
+SRTY,ProShares UltraPro Short Russell2000,Leveraged,"$61,200,939.00 ",Yes,3x
+NAIL,Direxion Daily Homebuilders & Supplies Bull 3X Shares,Leveraged,"$56,960,491.00 ",No,3x
+EDZ,Direxion Daily Emerging Markets Bear 3X Shares,Leveraged,"$56,290,954.00 ",Yes,3x
+SMHB,ETRACS 2xMonthly Pay Leveraged US Small Cap High Dividend ETN Series B,Leveraged,"$54,615,900.00 ",No,2x
+DRN,Direxion Daily Real Estate Bull 3x Shares,Leveraged,"$54,461,301.00 ",No,3x
+MIDU,Direxion Daily Mid Cap Bull 3X Shares,Leveraged,"$51,582,420.00 ",No,3x
+NRGO,MicroSectors U.S. Big Oil Index 2X Leveraged ETN,Leveraged,"$50,377,336.00 ",No,2x
+NRGU,MicroSectors U.S. Big Oil Index 3X Leveraged ETN,Leveraged,"$47,589,770.00 ",No,3x
+TECS,Direxion Daily Technology Bear 3X Shares,Leveraged,"$46,158,557.00 ",Yes,3x
+XPP,ProShares Ultra FTSE China 50,Leveraged,"$43,235,200.00 ",No,2x
+BOIL,ProShares Ultra Bloomberg Natural Gas,Leveraged,"$43,026,205.00 ",No,2x
+UYM,ProShares Ultra Basic Materials,Leveraged,"$43,008,109.00 ",No,2x
+NRGZ,MicroSectors U.S. Big Oil Index -2X Inverse Leveraged ETN,Leveraged,"$42,537,791.00 ",Yes,2x
+SMHD,ETRACS Monthly Pay 2xLeveraged US Small Cap High Dividend ETN,Leveraged,"$41,058,105.00 ",No,2x
+PST,UltraShort Barclays 7-10 Year Treasury,Leveraged,"$40,359,400.00 ",Yes,2x
+DVYL,ETRACS Monthly Pay 2xLeveraged Dow Jones Select Dividend Index ETN,Leveraged,"$40,006,075.00 ",No,2x
+BNKU,MicroSectors U.S. Big Banks Index 3x Leveraged ETN,Leveraged,"$39,946,494.00 ",No,3x
+YCS,ProShares UltraShort Yen,Leveraged,"$39,233,293.00 ",Yes,2x
+NRGD,MicroSectors U.S. Big Oil Index -3X Inverse Leveraged ETN,Leveraged,"$37,201,233.00 ",Yes,3x
+PFFL,ETRACS 2xMonthly Pay Leveraged Preferred Stock Index ETN,Leveraged,"$35,948,780.00 ",No,2x
+BNKO,MicroSectors U.S. Big Banks Index 2x Leveraged ETN,Leveraged,"$35,379,476.00 ",No,2x
+EURL,Direxion Daily FTSE Europe Bull 3x Shares,Leveraged,"$34,853,830.00 ",No,3x
+UBT,ProShares Ultra 20+ Year Treasury,Leveraged,"$34,118,471.00 ",No,2x
+UPW,ProShares Ultra Utilities,Leveraged,"$33,206,451.00 ",No,2x
+FXP,ProShares UltraShort China 50,Leveraged,"$32,764,598.00 ",Yes,2x
+GASL,Direxion Daily Natural Gas Related Bull 3X Shares,Leveraged,"$32,648,244.00 ",No,3x
+ERY,Direxion Daily Energy Bear 3X Shares,Leveraged,"$31,170,522.00 ",Yes,3x
+TTT,UltraPro Short 20+ Year Treasury,Leveraged,"$30,127,776.00 ",Yes,3x
+EET,ProShares Ultra MSCI Emerging Markets,Leveraged,"$29,814,844.00 ",No,2x
+FIEE,UBS AG FI Enhanced Europe 50 ETN,Leveraged,"$28,354,545.00 ",No,2x
+SAA,ProShares Ultra SmallCap600,Leveraged,"$28,321,614.00 ",No,2x
+BZQ,ProShares UltraShort MSCI Brazil,Leveraged,"$28,258,431.00 ",Yes,2x
+PPLC,PortfolioPlus S&P 500 ETF,Leveraged,"$27,865,518.00 ",No,1.25x
+UBIO,ProShares UltraPro Nasdaq Biotechnology,Leveraged,"$26,881,225.00 ",No,3x
+UST,ProShares Ultra 7-10 Year Treasury,Leveraged,"$26,860,564.00 ",No,2x
+LMLB,ETRACS Monthly Pay 2xLeveraged Wells Fargo MLP Ex-Energy ETN Series B,Leveraged,"$26,653,300.00 ",No,2x
+HDLB,ETRACS Monthly Pay 2xLeveraged US High Dividend Low Volatility ETN Series B,Leveraged,"$26,613,500.00 ",No,2x
+BDCY,ETRACS 2xMonthly Leveraged Wells Fargo Diversified BDC Index ETN Series B,Leveraged,"$26,549,900.00 ",No,2x
+FINU,ProShares UltraPro Financials,Leveraged,"$26,078,821.00 ",No,3x
+UMDD,ProShares UltraPro MidCap400,Leveraged,"$25,795,870.00 ",No,3x
+LMLP,ETRACS Monthly Pay 2xLeveraged Wells Fargo MLP Ex-Energy ETN,Leveraged,"$25,490,360.00 ",No,2x
+FNGZ,MicroSectors FANG+ Index -2X Inverse Leveraged ETN,Leveraged,"$25,030,294.00 ",Yes,2x
+UCC,ProShares Ultra Consumer Services,Leveraged,"$24,699,884.00 ",No,2x
+MLPZ,ETRACS 2xMonthly Leveraged S&P MLP Index ETN,Leveraged,"$24,506,105.00 ",No,2x
+SKF,ProShares Ultra Short Financials,Leveraged,"$24,005,709.00 ",Yes,2x
+UBOT,"Direxion Robotics, Artificial Intelligence & Automation Index Bull 3X Shares",Leveraged,"$23,380,737.00 ",No,3x
+UXI,ProShares Ultra Industrials,Leveraged,"$23,257,459.00 ",No,2x
+DSLV,VelocityShares 3x Inverse Silver ETN,Leveraged,"$23,144,344.00 ",Yes,3x
+DPST,Direxion Daily Regional Banks Bull 3X Shares,Leveraged,"$22,650,249.00 ",No,3x
+HDLV,ETRACS Monthly Pay 2xLeveraged US High Dividend Low Volatility ETN,Leveraged,"$22,448,787.00 ",No,2x
+KORU,Direxion Daily South Korea Bull 3X Shares,Leveraged,"$22,360,884.00 ",No,3x
+DVHL,ETRACS Monthly Pay 2x Leveraged Diversified High Income ETN,Leveraged,"$21,847,882.00 ",No,2x
+FNGD,MicroSectors FANG+??Index -3X Inverse Leveraged ETN,Leveraged,"$21,294,606.00 ",Yes,3x
+BIS,ProShares UltraShort Nasdaq Biotechnology,Leveraged,"$20,781,048.00 ",Yes,2x
+SDYL,ETRACS Monthly Pay 2xLeveraged S&P Dividend ETN,Leveraged,"$19,409,488.00 ",No,2x
+RUSS,Direxion Daily Russia Bear 3x Shares,Leveraged,"$19,150,083.00 ",Yes,3x
+DZK,Direxion Daily Developed Markets Bull 3X Shares,Leveraged,"$19,123,166.00 ",No,3x
+GASX,Direxion Daily Natural Gas Related Bear 3X Shares,Leveraged,"$18,064,880.00 ",Yes,3x
+SRS,ProShares Ultra Short Real Estate,Leveraged,"$17,662,053.00 ",Yes,2x
+GLL,ProShares UltraShort Gold,Leveraged,"$17,500,027.00 ",Yes,2x
+DGLD,VelocityShares 3x Inverse Gold ETN,Leveraged,"$16,536,735.00 ",Yes,3x
+DUG,ProShares Ultra Short Oil & Gas,Leveraged,"$16,507,730.00 ",Yes,2x
+TYD,Direxion Daily 7-10 Year Treasury Bull 3X,Leveraged,"$15,684,577.00 ",No,3x
+BNKZ,MicroSectors U.S. Big Banks Index -2x Inverse Leveraged ETN,Leveraged,"$15,516,540.00 ",Yes,2x
+PILL,Direxion Daily Pharmaceutical & Medical Bull 3X Shares,Leveraged,"$15,272,971.00 ",No,3x
+ZSL,ProShares UltraShort Silver,Leveraged,"$14,869,703.00 ",Yes,2x
+KOLD,ProShares UltraShort Bloomberg Natural Gas,Leveraged,"$14,636,147.00 ",Yes,2x
+DRR,Market Vectors Double Short Euro ETN,Leveraged,"$14,425,831.00 ",Yes,2x
+RETL,Direxion Daily Retail Bull 3X Shares,Leveraged,"$13,970,540.00 ",No,3x
+DRV,Direxion Daily Real Estate Bear 3x Shares,Leveraged,"$13,493,219.00 ",Yes,3x
+MEXX,Direxion Daily MSCI Mexico Bull 3X Shares,Leveraged,"$13,083,135.00 ",No,3x
+JPNL,Direxion Daily Japan Bull 3x Shares,Leveraged,"$13,064,587.00 ",No,3x
+DTO,DB Crude Oil Double Short ETN,Leveraged,"$12,936,824.00 ",Yes,2x
+SPUU,Direxion Daily S&P 500 Bull 2x Shares,Leveraged,"$12,932,797.00 ",No,2x
+EEV,UltraShort MSCI Emerging Markets,Leveraged,"$12,893,659.00 ",Yes,2x
+DZZ,DB Gold Double Short ETN,Leveraged,"$12,653,416.00 ",Yes,2x
+UTSL,Direxion Daily Utilities Bull 3X Shares,Leveraged,"$12,473,348.00 ",No,3x
+BNKD,MicroSectors U.S. Big Banks Index -3x Inverse Leveraged ETN,Leveraged,"$11,704,787.00 ",Yes,3x
+MJO,Indxx MicroSectors Cannabis 2X Leveraged ETN,Leveraged,"$11,618,037.00 ",No,2x
+EPV,ProShares UltraShort Europe,Leveraged,"$11,096,016.00 ",Yes,2x
+TYO,Direxion Daily 7-10 Year Treasury Bear 3X,Leveraged,"$10,827,722.00 ",Yes,3x
+WTIU,ProShares Daily 3x Long Crude ETN,Leveraged,"$10,361,585.00 ",No,3x
+AMJL,Credit Suisse X-Links Monthly Pay 2xLeveraged Alerian MLP Index ETN,Leveraged,"$9,790,088.00 ",No,2x
+LBJ,Direxion Daily Latin America 3x Bull Shares,Leveraged,"$9,249,210.00 ",No,3x
+UGE,ProShares Ultra Consumer Goods,Leveraged,"$8,403,908.00 ",No,2x
+UBR,ProShares Ultra MSCI Brazil,Leveraged,"$8,025,699.00 ",No,2x
+PPSC,PortfolioPlus S&P Small Cap ET,Leveraged,"$7,955,470.00 ",No,1.25x
+EUFL,Direxion Daily European Financials Bull 2x Shares,Leveraged,"$7,694,323.00 ",No,2x
+EFO,ProShares Ultra MSCI EAFE,Leveraged,"$7,666,309.00 ",No,2x
+FFEU,Barclays ETN+ FI Enhanced Europe 50 ETN Series C,Leveraged,"$7,567,976.00 ",No,2x
+WANT,Direxion Daily Consumer Discretionary Bull 3X Shares,Leveraged,"$7,484,458.00 ",No,3x
+SSG,ProShares Ultra Short Semiconductors,Leveraged,"$7,199,099.00 ",Yes,2x
+NEED,Direxion Daily Consumer Staples Bull 3X Shares,Leveraged,"$7,132,711.00 ",No,3x
+UPV,ProShares Ultra Europe,Leveraged,"$7,044,914.00 ",No,2x
+WEBL,Daily Dow Jones Internet Bull 3X Shares,Leveraged,"$6,728,310.00 ",No,3x
+DUSL,Direxion Daily Industrials Bull 3X Shares,Leveraged,"$6,113,445.00 ",No,3x
+ULE,ProShares Ultra Euro,Leveraged,"$6,055,944.00 ",No,2x
+CROC,ProShares UltraShort Australian Dollar,Leveraged,"$5,857,893.00 ",Yes,2x
+EZJ,ProShares Ultra MSCI Japan,Leveraged,"$5,817,865.00 ",No,2x
+UJB,ProShares Ultra High Yield,Leveraged,"$5,500,750.00 ",No,2x
+EWV,UltraShort MSCI Japan ProShares,Leveraged,"$5,286,451.00 ",Yes,2x
+SMN,ProShares Ultra Short Basic Materials,Leveraged,"$5,201,812.00 ",Yes,2x
+HIBL,Direxion Daily S&P 500 High Beta Bull 3X Shares,Leveraged,"$5,022,532.00 ",No,3x
+TAWK,Direxion Daily Communication Services Index Bull 3X Shares,Leveraged,"$4,741,945.00 ",No,3x
+SDP,ProShares Ultra Short Utilities,Leveraged,"$4,639,268.00 ",Yes,2x
+TPOR,Direxion Daily Transportation Bull 3X Shares,Leveraged,"$4,578,171.00 ",No,3x
+LRET,ETRACS Monthly Pay 2xLeveraged MSCI US REIT ETN,Leveraged,"$4,090,576.00 ",No,2x
+WTID,ProShares Daily 3x Inverse Crude ETN,Leveraged,"$3,760,110.00 ",Yes,3x
+SMLL,Direxion Daily Small Cap Bull 2x Shares,Leveraged,"$3,667,323.00 ",No,2x
+REW,ProShares Ultra Short Technology,Leveraged,"$3,595,655.00 ",Yes,2x
+HOML,ETRACS Monthly Reset 2xLeveraged ISE Exclusively Homebuilders ETN,Leveraged,"$3,393,790.00 ",No,2x
+ZBIO,ProShares UltraPro Short Nasdaq Biotechnology,Leveraged,"$3,096,461.00 ",Yes,3x
+MZZ,ProShares UltraShort Midcap 400,Leveraged,"$2,778,749.00 ",Yes,2x
+WEBS,Daily Dow Jones Internet Bear 3X Shares,Leveraged,"$2,721,284.00 ",Yes,3x
+YCL,ProShares Ultra Yen,Leveraged,"$2,710,144.00 ",No,2x
+HIBS,Direxion Daily S&P 500 High Beta Bear 3X Shares,Leveraged,"$2,709,725.00 ",Yes,3x
+DWTI,VelocityShares 3x Inverse Crude ETN,Leveraged,"$2,496,590.00 ",Yes,3x
+SMDD,ProShares UltraPro Short MidCap400,Leveraged,"$2,466,818.00 ",Yes,3x
+MIDZ,Direxion Daily Mid Cap Bear 3X Shares,Leveraged,"$2,462,441.00 ",Yes,3x
+SDD,ProShares Ultra Short Small Cap 600,Leveraged,"$2,411,501.00 ",Yes,2x
+DPK,Direxion Daily Developed Markets Bear 3X Shares,Leveraged,"$2,222,766.00 ",Yes,3x
+UGBP,VelocityShares Daily 4x Long GBP vs USD ETN,Leveraged,"$2,150,851.00 ",No,4x
+LTL,Ultra Telecommunications ProShares,Leveraged,"$2,142,407.00 ",No,2x
+WDRW,Direxion Daily Regional Banks Bear 3X Shares,Leveraged,"$1,905,185.00 ",Yes,3x
+UCOM,ProShares UltraPro Communication Services Select Sector ETF,Leveraged,"$1,823,821.00 ",No,3x
+RXD,ProShares Ultra Short Health Care,Leveraged,"$1,804,262.00 ",Yes,2x
+FLEU,Barclays ETN+ FI Enhanced Europe 50 ETNotes Series B,Leveraged,"$1,780,454.00 ",No,2x
+EFU,UltraShort MSCI EAFE ProShares,Leveraged,"$1,716,042.00 ",Yes,2x
+SZK,ProShares Ultra Short Consumer Goods,Leveraged,"$1,674,096.00 ",Yes,2x
+FINZ,ProShares UltraPro Short Financials,Leveraged,"$1,601,565.00 ",Yes,3x
+XCOM,ProShares Ultra Communication Services Select Sector ETF,Leveraged,"$1,531,155.00 ",No,2x
+DEUR,VelocityShares Daily 4x Long USD vs EUR ETN,Leveraged,"$1,445,932.00 ",No,4x
+SIJ,ProShares Ultra Short Industrials,Leveraged,"$1,392,050.00 ",Yes,2x
+PPMC,PortfolioPlus S&P Mid Cap ETF,Leveraged,"$1,383,378.00 ",No,1.25x
+PASS,Direxion Daily Consumer Discretionary Bear 3X Shares,Leveraged,"$1,260,475.00 ",Yes,3x
+PPDM,PortfolioPlus Developed Markets ETF,Leveraged,"$1,245,349.00 ",No,1.25x
+UEUR,VelocityShares Daily 4x Long EUR vs USD ETN,Leveraged,"$1,222,584.00 ",No,4x
+URR,Market Vectors Double Long Euro ETN,Leveraged,"$1,217,983.00 ",No,2x
+PPEM,PortfolioPlus Emerging Markets ETF,Leveraged,"$1,177,509.00 ",No,1.25x
+UCHF,VelocityShares Daily 4x Long CHF vs USD ETN,Leveraged,"$1,076,790.00 ",No,4x
+DJPY,VelocityShares Daily 4x Long USD vs JPY ETN,Leveraged,"$1,072,631.00 ",No,4x
+UAUD,VelocityShares Daily 4x Long AUD vs USD ETN,Leveraged,"$1,041,782.00 ",No,4x
+DAUD,VelocityShares Daily 4x Long USD vs AUD ETN,Leveraged,"$966,765.00 ",No,4x
+DGBP,VelocityShares Daily 4x Long USD vs GBP ETN,Leveraged,"$962,855.00 ",No,4x
+UJPY,VelocityShares Daily 4x Long JPY vs USD ETN,Leveraged,"$931,190.00 ",No,4x
+DCHF,VelocityShares Daily 4x Long USD vs CHF ETN,Leveraged,"$923,771.00 ",No,4x
+SCC,ProShares Ultra Short Consumer Services,Leveraged,"$778,050.00 ",Yes,2x
+LACK,Direxion Daily Consumer Staples Bear 3X Shares,Leveraged,"$724,641.00 ",Yes,3x
+YCOM,ProShares UltraShort Communication Services Select Sector ETF,Leveraged,"$582,134.00 ",Yes,2x
+MUTE,Direxion Daily Communication Services Index Bear 3X Shares,Leveraged,"$524,802.00 ",Yes,3x
+SCOM,ProShares UltraPro Short Communication Services Select Sector ETF,Leveraged,"$429,581.00 ",Yes,3x
+MJ,ETFMG Alternative Harvest ETF,Theme,"$828,390,000.00 ",,
+YOLO,AdvisorShares Pure Cannabis ETF,Theme,"$50,560,000.00 ",,
+IVW,iShares S&P 500 Growth ETF,Basic,"$25,954,290,000.00 ",,
+SPY,SPDR S&P 500 ETF,Basic,"$317,197,669,003.00 ",,
+VTI,Vanguard Total Stock Market ETF,Basic,"$142,216,506,836.00 ",,
+VEA,Vanguard FTSE Developed Markets ETF,Basic,"$79,712,908,503.00 ",,
+VTV,Vanguard Value ETF,Basic,"$55,796,071,836.00 ",,
+IWF,iShares Russell 1000 Growth ETF,Basic,"$50,931,971,500.00 ",,
+VUG,Vanguard Growth ETF,Basic,"$48,894,526,779.00 ",,
+HACK,ETFMG Prime Cyber Security ETF,Theme,"$1,554,926,170.00 ",,
+INDA,iShares MSCI India ETF,Basic,"$5,715,424,841.00 ",,
+MCHI,iShares MSCI China ETF,Basic,"$4,971,834,868.00 ",,
+GDXJ,VanEck Vectors Junior Gold Miners ETF,Basic,"$4,958,029,070.00 ",,
+EWY,iShares MSCI South Korea ETF,Basic,"$4,800,392,866.00 ",,
+CNYA,iShares MSCI China A ETF,Basic,"$307,626,433.00 ",,
+EWZ,iShares MSCI Brazil ETF,Basic,"$10,685,549,281.00 ",,
+GLD,SPDR Gold Trust,Basic,"$45,003,240,000.00 ",,
+USO,United States Oil Fund,Basic,"$1,449,590,000.00 ",,
