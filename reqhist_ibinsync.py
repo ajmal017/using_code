@@ -3,10 +3,10 @@ import pandas as pd
 import datetime as dt
 # util.startLoop()  # uncomment this line when in a notebook
 
-symbol1 = "AAPL"
-sectype = "STK"
-exchange1 = "SMART"
-enddatetime_temp = '2020124 00:00:00'
+symbol1 = "SOX"
+sectype = "IND"
+exchange1 = "PHLX"
+enddatetime_temp = '20200128 00:00:00'
 duration1 = '20 Y'
 barsize1 = '1 day'
 
@@ -31,7 +31,11 @@ bars = ib.reqHistoricalData(
 
 # convert to pandas dataframe:
 df = util.df(bars)
+df.columns = df.columns.str.capitalize()
+df.set_index('Date', inplace=True)
 print(df)
-savename = './ib_db/' + '{}_{}_{}_{}'.format(symbol1, dates, duration1, barsize1) + '.csv'
+
+
+savename = './ib_db/' + '{}_{}_{}_{}'.format(symbol1, dates, duration1.replace(' ', ''), barsize1.replace(' ', '')) + '.csv'
 
 df.to_csv(savename)

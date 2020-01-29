@@ -10,9 +10,9 @@ from matplotlib import rc
 rc('font', family="Batang")
 
 # tickers
-ticker1 = 'PLD'
-ticker2 = 'HD'
-ticker3 = 'AAPL'
+ticker1 = '0. KOSPI'
+ticker2 = 'COMP_20200128_20Y_1day'
+ticker3 = 'SOX_20200128_20Y_1day'
 
 
 # ticker3 has only 1 column, so modify the code other way.
@@ -26,8 +26,8 @@ end_date = "2020-01-05"
 
 # file path
 read_ticker1 = './db/' + ticker1 + '.csv'
-read_ticker2 = './db/' + ticker2 + '.csv'
-read_ticker3 = './db/' + ticker3 + '.csv'
+read_ticker2 = './ib_db/' + ticker2 + '.csv'
+read_ticker3 = './ib_db/' + ticker3 + '.csv'
 
 raw_data1 = pd.read_csv(read_ticker1)
 raw_data2 = pd.read_csv(read_ticker2)
@@ -68,7 +68,8 @@ chart2 = chart22.iloc[:,3]
 
 # ticker3 has only 1 column and monthly data,  so modify the code other way.
 
-if len(ticker3) < 9:
+
+if '1.' in ticker3:
     raw_data3.set_index('Date', inplace=True)
     chart33 = raw_data3.loc[st:et].apply(lambda x: x / x[0])
     chart3 = chart33.iloc[:, 3]
