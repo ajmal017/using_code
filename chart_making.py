@@ -7,12 +7,12 @@ from datetime import datetime as dt
 import datetime
 import matplotlib.dates as dates
 
-ticker1 = 'msft'
-path = './db/' + ticker1 + '.csv'
+ticker1 = 'AAPL'
+path = './data/' + ticker1 + '.csv'
 
 raw_data = pd.read_csv(path)
 
-start_date = "2018-01-01"
+start_date = "2000-01-01"
 end_date = "2020-01-15"
 
 # to skip the days not in data
@@ -29,7 +29,7 @@ while st not in raw_data['Date'].values:
 else: pass
 
 while et not in raw_data['Date'].values:
-    ed += datetime.timedelta(days=1)
+    ed -= datetime.timedelta(days=1)
     et = dt.strftime(ed,"%Y-%m-%d")
     print(ed)
 else: pass
@@ -43,6 +43,11 @@ fig, ax = plt.subplots(figsize=(12,7))
 candlestick2_ohlc(ax,chart1.iloc[:,0], chart1.iloc[:,1], chart1.iloc[:,2],
                   chart1.iloc[:,3], width=0.6, colorup='g', colordown='r', alpha=0.75)
 
+ax.set_xlabel('Date')
+ax.set_ylabel(ticker1, color='g')
+ax.tick_params('y', colors='r')
+ax.plot(index=chart1.index)
+plt.legend(loc='upper left')
 
 xtick_interval = (ed - sd).days / 6
 ax.xaxis.set_major_locator(ticker.MultipleLocator(xtick_interval))

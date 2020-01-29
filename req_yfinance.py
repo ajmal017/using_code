@@ -29,7 +29,7 @@ if ticker1 == "":
     tickers = pd.Series(tickers)
     tickers.drop_duplicates(inplace=True)
     tickers.reset_index(drop=True, inplace=True)
-    tickers.sort_values(ascending=True, inplace = True)
+    tickers.sort_values(ascending=True, inplace =True)
     print(tickers)
     for i in tqdm(range(len(tickers))):
         ticker2 = tickers[i].replace('.', '-')
