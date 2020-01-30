@@ -109,7 +109,6 @@ ax.xaxis.set_minor_locator(MultipleLocator(4))
 ax.grid(which='major', axis='x', color='k', linewidth=0.5)
 ax.grid(which='minor', axis='x', color='gray', dashes=(2,4), linewidth=0.5)
 fig.tight_layout()
-out_path = './charts/' + '{}_earnings_hourly.png'.format\
-    (ticker1)
+out_path = './charts/' + '{}_earnings_hourly.png'.format(ticker1)
 plt.savefig(out_path)
 plt.show()
