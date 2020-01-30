@@ -20,7 +20,7 @@ df = df[df['Ticker']==ticker1]
 print(df)
 
 
-# TODO minus surprise fix    / groupby
+# TODO groupby
 
 
 read_ticker1 = './db/' + ticker1 + '.csv'

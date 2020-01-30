@@ -3,7 +3,7 @@ import pandas as pd
 import datetime as dt
 # util.startLoop()  # uncomment this line when in a notebook
 
-symbol1 = "AAPL"
+symbol1 = "TSLA"
 sectype = "STK"
 exchange1 = "SMART"
 enddatetime_temp = '20200130 00:00:00'

@@ -87,20 +87,9 @@ merge2.set_index('Date_x', inplace=True)
 merge2.sort_values(by=['Date_x'], ascending=True, inplace=True)
 print(merge2)
 
-fig, ax = plt.subplots(figsize=(12,7))
-candlestick2_ohlc(ax,merge2.iloc[:,0], merge2.iloc[:,1], merge2.iloc[:,2],
-                  merge2.iloc[:,3], width=0.6, colorup='g', colordown='r', alpha=0.75)
+for i, g in merge2.groupby('Fiscal'):
+    globals()['df_' + str(i)] = g
 
-ax.set_ylabel(ticker1, color='g')
-ax.tick_params('y', colors='r')
-xtick_value = pd.Series(merge2['Fiscal'])
-xtick_value.reset_index(drop=True, inplace=True)
-xtick_interval = round(len(xtick_value) / 12, 0)
-position = np.arange(0,len(xtick_value),xtick_interval)
-xticks = xtick_value[position]
-plt.xticks(np.arange(0,len(xtick_value),xtick_interval),xticks, rotation=45)
+print(df_17Q4)
 
-fig.tight_layout()
-plt.show()
-
-## TODO : annotation
+## TODO : normalize
