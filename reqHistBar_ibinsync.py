@@ -6,11 +6,12 @@ import datetime as dt
 symbol1 = "TSLA"
 sectype = "STK"
 exchange1 = "SMART"
-enddatetime_temp = '20200130 00:00:00'
+enddatetime_temp = '20200131 00:00:00'
 duration1 = '3 Y'
 barsize1 = '2 hours'
 
-##for timezone setting
+
+# for timezone setting
 et1 = dt.datetime.strptime(enddatetime_temp, "%Y%m%d %H:%M:%S")
 et2 = et1.astimezone(dt.timezone.utc) - dt.timedelta(hours=5)
 enddatetime1 = dt.datetime.strftime(et2, "%Y%m%d %H:%M:%S")

@@ -33,7 +33,7 @@ df.dropna(how='all', inplace=True)
 df['Act'] = ''
 df['Con'] = ''
 df['Real-Con'] = ''
-
+df['SurpShock'] = ''
 
 # Fiscal string cleaning. 'Q'n YY -> YY'Q'n
 
@@ -62,13 +62,21 @@ for i in range(len(df)):
     elif df['Act'][i]==1 and df['Con'][i] == 1:
         df['Real-Con'][i] = round((df['Actual'][i] / df['Consensus'][i] -1) * 100,2)
 
-df['Actual'] = round(df['Actual'], 2)
-df['Consensus'] = round(df['Consensus'], 2)
+
+# 3 types surprise / consensus / shock
+
+for i in range(len(df)):
+    if df['Real-Con'][i] > 15:
+        df['SurpShock'][i] = 'Surprise'
+    elif df['Real-Con'][i] > -15:
+        df['SurpShock'][i] = 'in-line'
+    else:
+        df['SurpShock'][i] = 'Shock'
 
 
 # bar data by 2hours
 
-read_ticker1 = './ib_db/' + 'TSLA_20200130_3Y_2hours' + '.csv'
+read_ticker1 = './ib_db/' + 'TSLA_20200131_3Y_2hours' + '.csv'
 raw_data1 = pd.read_csv(read_ticker1)
 raw_data_date = pd.to_datetime(raw_data1['Date'])
 raw_data1['Date_day'] = raw_data_date.dt.strftime("%Y-%m-%d")
@@ -78,9 +86,8 @@ raw_data1.set_index('Date_day', inplace=True)
 # merging
 
 merge1 = pd.merge(raw_data1, df, left_index=True, right_index=True, how='left')
-merge1 = merge1.fillna(method='bfill', limit=7)
-merge1 = merge1.fillna(method='ffill', limit=24)
-merge_col = ['Date_x', 'Open', 'High', 'Low', 'Close', 'Volume', 'Actual', 'Fiscal', 'Consensus', 'Real-Con']
+merge1 = merge1.fillna(method='ffill', limit=12)
+merge_col = ['Date_x', 'Fiscal', 'Open', 'SurpShock']
 merge2 = merge1[merge_col]
 merge2 = merge2.dropna(axis=0, how='any')
 merge2.set_index('Date_x', inplace=True)
@@ -90,6 +97,6 @@ print(merge2)
 for i, g in merge2.groupby('Fiscal'):
     globals()['df_' + str(i)] = g
 
-print(df_17Q4)
+print(df_19Q3)
 
 ## TODO : normalize

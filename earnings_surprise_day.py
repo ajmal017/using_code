@@ -50,7 +50,7 @@ xtick_interval = round(len(xtick_value) / 10, 0)
 position = np.arange(0,len(xtick_value),xtick_interval)
 xticks = xtick_value[position]
 plt.xticks(np.arange(0,len(xtick_value),xtick_interval),xticks, rotation=45)
-
+plt.grid(which='major', axis='x')
 fig.tight_layout()
 
 savename = './data/2.' + ticker1 + '_earnings.csv'
