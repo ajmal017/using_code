@@ -8,6 +8,7 @@ import numpy as np
 import warnings
 from pandas.core.common import SettingWithCopyWarning
 from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import IndexFormatter
 
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
@@ -68,10 +69,8 @@ for i in range(len(df)):
     elif df['Act'][i] == 1 and df['Con'][i] == 1:
         df['Real-Con'][i] = round((df['Actual'][i] / df['Consensus'][i] - 1) * 100, 2)
 
-
 df['Actual'] = round(df['Actual'], 2)
 df['Consensus'] = round(df['Consensus'], 2)
-
 
 for i in range(len(df)):
     if df['Real-Con'][i] > 10:
@@ -81,12 +80,12 @@ for i in range(len(df)):
     else:
         df['SurpShock'][i] = 'Shock'
 
-
 # merging
 
 merge1 = pd.merge(raw_data1, df, left_index=True, right_index=True, how='left')
 merge1 = merge1.fillna(method='ffill', limit=8)
-merge_col = ['Date_x', 'Open', 'High', 'Low', 'Close', 'Volume', 'Actual', 'Fiscal', 'Consensus', 'Real-Con', 'SurpShock']
+merge_col = ['Date_x', 'Open', 'High', 'Low', 'Close', 'Volume', 'Actual', 'Fiscal', 'Consensus', 'Real-Con',
+             'SurpShock']
 merge2 = merge1[merge_col]
 merge2 = merge2.dropna(axis=0, how='any')
 merge2.set_index('Date_x', inplace=True)
@@ -100,6 +99,21 @@ xtick_value.reset_index(drop=True, inplace=True)
 xtick_interval = round(len(xtick_value) / len(xtick_value.unique()), 0)
 position = np.arange(0, len(xtick_value), xtick_interval)
 xticks = xtick_value[position]
+xtick_sub = pd.Series(merge2['SurpShock'])
+xtick_sub.reset_index(drop=True, inplace=True)
+
+# make specific interval difference between data
+# https://www.geeksforgeeks.org/python-interval-initialization-in-list/
+
+interval_element = 1
+interval_difference = 4
+xticks_sub = [i for j, i in enumerate(xtick_sub) if j %  interval_difference < interval_element]
+# print(res)
+print(len(xticks_sub))
+
+# print(merge1)
+# print(xtick_sub)
+print(len(xtick_sub))
 
 # plotting
 
@@ -111,9 +125,10 @@ ax.set_ylabel(ticker1, color='g')
 ax.tick_params('y', colors='r')
 plt.xticks(np.arange(0, len(xtick_value), xtick_interval), xticks, rotation=45)
 ax.xaxis.set_minor_locator(MultipleLocator(4))
+ax.xaxis.set_minor_formatter(IndexFormatter(xticks_sub))
 ax.grid(which='major', axis='x', color='k', linewidth=0.5)
 ax.grid(which='minor', axis='x', color='gray', dashes=(2, 4), linewidth=0.5)
 fig.tight_layout()
-out_path = './charts/' + '{}_earnings_hourly.png'.format(ticker1)
-plt.savefig(out_path)
+# out_path = './charts/' + '{}_earnings_hourly.png'.format(ticker1)
+# plt.savefig(out_path)
 plt.show()
