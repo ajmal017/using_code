@@ -24,7 +24,7 @@ ticker1 = 'TSLA'
 
 # cleaning data of earning season
 
-df = pd.read_excel('./db/0. nasdaq100 earnings.xlsx')
+df = pd.read_excel('0. nasdaq100.xlsx')
 df = df[df['Ticker']==ticker1]
 df['Date_day'] = df['Date'].dt.strftime("%Y-%m-%d")
 df.set_index('Date_day', inplace=True)
@@ -76,7 +76,7 @@ for i in range(len(df)):
 
 # bar data by 2hours
 
-read_ticker1 = './ib_db/' + 'TSLA_20200131_3Y_2hours' + '.csv'
+read_ticker1 = './ib_db/' + 'TSLA_20200201_3Y_2hours' + '.csv'
 raw_data1 = pd.read_csv(read_ticker1)
 raw_data_date = pd.to_datetime(raw_data1['Date'])
 raw_data1['Date_day'] = raw_data_date.dt.strftime("%Y-%m-%d")

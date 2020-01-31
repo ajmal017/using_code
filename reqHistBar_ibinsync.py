@@ -3,12 +3,12 @@ import pandas as pd
 import datetime as dt
 # util.startLoop()  # uncomment this line when in a notebook
 
-symbol1 = "X"
+symbol1 = "BABA"
 sectype = "STK"
 exchange1 = "SMART"
 enddatetime_temp = '20200201 00:00:00'
-duration1 = '10 Y'
-barsize1 = '1 day'
+duration1 = '3 Y'
+barsize1 = '2 hours'
 
 
 # for timezone setting
