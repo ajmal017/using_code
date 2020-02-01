@@ -116,6 +116,14 @@ ax.set_ylabel('price movement')
 ax.yaxis.set_major_formatter(mtick.PercentFormatter(5, decimals=0))
 plt.legend(loc='upper left', handlelength=1, ncol=3,
            fontsize='small', fancybox=True, markerfirst=False)
+
+
+# save to file as png format
+
+out_path = './charts/' + '{}_earnings_surprise.png'.format(ticker1)
+plt.savefig(out_path)
+
+
 plt.show()
 # for i, g in mer1.groupby('Fiscal'):
 #     globals()['df_' + str(i)] = g
