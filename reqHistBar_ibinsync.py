@@ -3,7 +3,7 @@ import pandas as pd
 import datetime as dt
 # util.startLoop()  # uncomment this line when in a notebook
 
-symbol1 = "BABA"
+symbol1 = "AMD"
 sectype = "STK"
 exchange1 = "SMART"
 enddatetime_temp = '20200201 00:00:00'
@@ -24,7 +24,7 @@ contract.symbol = symbol1
 contract.secType = sectype
 contract.exchange = exchange1
 contract.currency = "USD"
-
+contract.primaryExchange = "ISLAND"
 
 bars = ib.reqHistoricalData(
     contract, endDateTime= enddatetime1, durationStr=duration1,

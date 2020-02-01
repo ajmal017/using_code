@@ -1,24 +1,16 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-from matplotlib import rc
 import numpy as np
 import warnings
 from pandas.core.common import SettingWithCopyWarning
 import matplotlib.ticker as mtick
-
+from cycler import cycler
+import seaborn as sns
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
-rc('font', family="Batang")
 
-
-def pos_neg(num):
-    if num > 0:
-        return True
-    else:
-        return False
-
-
-ticker1 = 'TSLA'
+ticker1 = 'AMD'
+file1 = 'AMD_20200201_3Y_2hours'
 
 # cleaning data of earning season
 
@@ -42,6 +34,13 @@ for i in range(len(df)):
     df['Fiscal'][i] = sp2 + sp1
 
 # real-con column setting
+
+
+def pos_neg(num):
+    if num > 0:
+        return True
+    else:
+        return False
 
 
 for i in range(len(df)):
@@ -76,7 +75,7 @@ for i in range(len(df)):
 
 # bar data by 2hours
 
-read_ticker1 = './ib_db/' + 'TSLA_20200201_3Y_2hours' + '.csv'
+read_ticker1 = './ib_db/' + file1 + '.csv'
 raw_data1 = pd.read_csv(read_ticker1)
 raw_data_date = pd.to_datetime(raw_data1['Date'])
 raw_data1['Date_day'] = raw_data_date.dt.strftime("%Y-%m-%d")
@@ -97,26 +96,43 @@ merge2['Fis_Earn'] = merge2['Fiscal'].astype(str) + '  ' + merge2['Real-Con'].as
 # normalizing each Quarter, using groupby, apply
 
 def normalizing(df):
-    df['Open'] = df['Open'] / df['Open'][0] -1
+    df['Open'] = (df['Open'] / df['Open'][0] -1) *100
     return df
 
 
 merge2 = merge2.groupby('Fis_Earn').apply(normalizing)
+merge2.to_csv('ddd.csv')
 
-#plotting
+
+## make line chart
+
+# color setting
+sns.set_palette('Paired')
+colornum = int(len(pd.Series(merge2['Fiscal'].unique())))
+colors = sns.color_palette(n_colors=colornum)
+
+# plotting
 
 fig, ax = plt.subplots(figsize=(12,7))
-merge2.groupby('Fis_Earn')['Open'].plot(legend=True)
-np_xticks = pd.Series(np.arange(0,16) *2)
-xticks = 'T+' + np_xticks.astype(str) + 'h'
+merge2.groupby('Fis_Earn')['Open'].plot(legend=True, linewidth=1.5)
+
+# set ticks
+np_xticks = pd.Series(np.arange(-3,+13) *2)
+xticks = 'T' + np_xticks.astype(str) + 'h'
 plt.xticks(ticks=np.arange(0,16), labels=xticks)
+ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
+
+# set label
 ax.set_xlabel('hours after earnings')
 ax.set_ylabel('price movement')
 
-ax.yaxis.set_major_formatter(mtick.PercentFormatter(5, decimals=0))
-plt.legend(loc='upper left', handlelength=1, ncol=3,
-           fontsize='small', fancybox=True, markerfirst=False)
+# set color
+ax.set_prop_cycle('color', colors)
 
+# set legend
+plt.legend(title="Actual-Consensus(%)", loc='best', handlelength=1.5, ncol=3,
+           fontsize='small', fancybox=True, markerfirst=False)
+plt.title(ticker1)
 
 # save to file as png format
 
@@ -125,5 +141,6 @@ plt.savefig(out_path)
 
 
 plt.show()
+
 # for i, g in mer1.groupby('Fiscal'):
 #     globals()['df_' + str(i)] = g
