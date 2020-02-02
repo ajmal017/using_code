@@ -9,8 +9,8 @@ import seaborn as sns
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 
-ticker1 = 'AMD'
-file1 = 'AMD_20200201_3Y_2hours'
+ticker1 = 'TSLA'
+file1 = 'TSLA_20200201_3Y_2hours'
 
 # cleaning data of earning season
 
@@ -96,7 +96,7 @@ merge2['Fis_Earn'] = merge2['Fiscal'].astype(str) + '  ' + merge2['Real-Con'].as
 # normalizing each Quarter, using groupby, apply
 
 def normalizing(df):
-    df['Open'] = (df['Open'] / df['Open'][0] -1) *100
+    df['Open'] = (df['Open'] / df['Open'][3] -1) *100
     return df
 
 
