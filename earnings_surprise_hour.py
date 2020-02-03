@@ -9,7 +9,6 @@ from matplotlib.ticker import MultipleLocator
 from matplotlib.ticker import IndexFormatter
 from itertools import compress, cycle
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
-rc('font', family="Batang")
 
 
 def pos_neg(num):
@@ -21,6 +20,7 @@ def pos_neg(num):
 
 ticker1 = 'AMZN'
 surp_thres = 20
+
 # bar data by 2hours, get data with IB api
 
 read_ticker1 = './ib_db/' + 'AMZN_20200201_3Y_2hours' + '.csv'
@@ -31,24 +31,16 @@ raw_data1.set_index('Date_day', inplace=True)
 
 # cleaning data of earnings calendar
 
-df = pd.read_excel('0. nasdaq100.xlsx')
+df = pd.read_csv('./data/cleaned_earning_calendar.csv')
 df = df[df['Ticker'] == ticker1]
-df['Date_day'] = df['Date'].dt.strftime("%Y-%m-%d")
-df.set_index('Date_day', inplace=True)
-df = df.iloc[:, 1:]
+df['Date'] = pd.to_datetime(df['Date'])
+df.set_index('Date', inplace=True)
+
 df.dropna(how='all', inplace=True)
 df['Act'] = ''
 df['Con'] = ''
 df['Real-Con'] = ''
 df['SurpShock'] = ''
-
-
-# Fiscal string cleaning. 'Q'n YY -> YY'Q'n
-
-for i in range(len(df)):
-    df['Fiscal'][i] = df['Fiscal'][i].strip()
-    sp1, sp2 = df['Fiscal'][i].split(' ')
-    df['Fiscal'][i] = sp2 + sp1
 
 # Surprise or Shock? calculate
 
@@ -83,17 +75,18 @@ for i in range(len(df)):
 
 merge1 = pd.merge(raw_data1, df, left_index=True, right_index=True, how='left')
 merge1 = merge1.fillna(method='ffill', limit=8)
-merge_col = ['Date_x', 'Open', 'High', 'Low', 'Close', 'Volume', 'Actual', 'Fiscal', 'Consensus', 'Real-Con',
-             'SurpShock']
+print(merge1)
+merge_col = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Actual', 'Consensus', 'Real-Con',
+             'SurpShock', 'Calendar']
 merge2 = merge1[merge_col]
 merge2 = merge2.dropna(axis=0, how='any')
-merge2.set_index('Date_x', inplace=True)
-merge2.sort_values(by=['Date_x'], ascending=True, inplace=True)
+merge2.set_index('Date', inplace=True)
+merge2.sort_values(by=['Date'], ascending=True, inplace=True)
 print(merge2)
 
 # tick, label value setting
 
-xtick_value = pd.Series(merge2['Fiscal'])
+xtick_value = pd.Series(merge2['Calendar'])
 xtick_value.reset_index(drop=True, inplace=True)
 xtick_interval = round(len(xtick_value) / len(xtick_value.unique()), 0)
 position = np.arange(0, len(xtick_value), xtick_interval)
@@ -112,11 +105,12 @@ func = cycle([True] * N + [False] * (K - N))
 res = list(compress(num_values, func))
 null_list = [''] * (len(xtick_sub) - len(res))
 for j in range(len(res)):
-    qw = res[j] + 2
+    qw = res[j]
     null_list.insert(qw, xtick_sub[qw])
 xticks_sub = null_list
 
-## plotting
+
+# plotting
 
 # candlestick function
 
@@ -130,7 +124,7 @@ ax.set_ylabel(ticker1, color='g')
 ax.tick_params('y', colors='r')
 ax.tick_params('x', which='minor', direction='in', pad=-10, labelsize=8, colors='b')
 plt.xticks(np.arange(0, len(xtick_value), xtick_interval), xticks, rotation=45)
-ax.xaxis.set_minor_locator(MultipleLocator(4))
+ax.xaxis.set_minor_locator(MultipleLocator(3))
 ax.xaxis.set_minor_formatter(IndexFormatter(xticks_sub))
 ax.grid(which='major', axis='x', color='k', linewidth=0.5)
 ax.grid(which='minor', axis='x', color='gray', dashes=(2, 4), linewidth=0.5)
@@ -145,3 +139,6 @@ out_path = './charts/' + '{}_earnings_hourly.png'.format(ticker1)
 plt.savefig(out_path)
 
 plt.show()
+
+
+# TODO: set date and left index = False
