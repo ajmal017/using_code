@@ -8,8 +8,8 @@ from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 
-ticker1 = 'TSLA'
-file1 = 'TSLA_20200201_3Y_2hours'
+ticker1 = 'DIS'
+file1 = 'DIS_20200205_3Y_2hours'
 ffil_days = 3
 # cleaning data of earning season
 
@@ -19,8 +19,8 @@ df.set_index('Date', inplace=True)
 df.dropna(how='all', inplace=True)
 df['Act'] = ''
 df['Con'] = ''
-df['Real-Con'] = ''
-df['SurpShock'] = ''
+df['EPS.Real-Con'] = ''
+df['Rev.Real-Con'] = round((df['RevActual'] / df['RevConsensus'] -1) * 100, 1)
 
 
 # real-con column setting
@@ -39,28 +39,13 @@ for i in range(len(df)):
 
 for i in range(len(df)):
     if df['Act'][i] == 1 and df['Con'][i] == 0:
-        df['Real-Con'][i] = '+ Surp'
+        df['EPS.Real-Con'][i] = '+ Surp'
     elif df['Act'][i] == 0 and df['Con'][i] == 1:
-        df['Real-Con'][i] = '- Shock'
+        df['EPS.Real-Con'][i] = '- Shock'
     elif df['Act'][i] == 0 and df['Con'][i] == 0:
-        df['Real-Con'][i] = -round((df['Actual'][i] / df['Consensus'][i] - 1) * 100, 1)
+        df['EPS.Real-Con'][i] = -round((df['Actual'][i] / df['Consensus'][i] - 1) * 100, 1)
     elif df['Act'][i] == 1 and df['Con'][i] == 1:
-        df['Real-Con'][i] = round((df['Actual'][i] / df['Consensus'][i] - 1) * 100, 1)
-
-# 3 types surprise / consensus / shock
-
-for i in range(len(df)):
-    if df['Real-Con'][i] == '+ Surp':
-        df['SurpShock'][i] = 'Surprise'
-    elif df['Real-Con'][i] == '- Shock':
-        df['SurpShock'][i] = 'Shock'
-    elif df['Real-Con'][i] > 15:
-        df['SurpShock'][i] = 'Surprise'
-    elif df['Real-Con'][i] > -15:
-        df['SurpShock'][i] = 'in-line'
-    else:
-        df['SurpShock'][i] = 'Shock'
-
+        df['EPS.Real-Con'][i] = round((df['Actual'][i] / df['Consensus'][i] - 1) * 100, 1)
 
 
 # bar data by 2hours
@@ -74,14 +59,27 @@ raw_data1.set_index('Date_day', inplace=True)
 # merging  and  before market  //  after close
 
 merge1 = pd.merge(raw_data1, df, left_index=True, right_index=True, how='left')
-# if merge1['releasetime']
-merge1 = merge1.fillna(method='ffill', limit=ffil_days*4)
-merge_col = ['Date', 'Calendar', 'Open', 'Real-Con']
+
+# if merge1['relasetime'] before market, bfill and ffill , after market -> ffill only
+count1 = merge1['releasetime'].value_counts()
+count=count1.index[0]
+if count != 'After Close':
+    merge1 = merge1.fillna(method='bfill', limit=(ffil_days-2) * 4)
+    merge1 = merge1.fillna(method='ffill', limit=(ffil_days-1) * 4)
+
+else:
+    merge1 = merge1.fillna(method='ffill', limit=ffil_days * 4)
+
+
+# merged data cleaning
+
+merge_col = ['Date', 'Calendar', 'Open', 'EPS.Real-Con', 'Rev.Real-Con']
 merge2 = merge1[merge_col]
 merge2 = merge2.dropna(axis=0, how='any')
 merge2.set_index('Date', inplace=True)
 merge2.sort_values(by=['Date'], ascending=True, inplace=True)
-merge2['Fis_Earn'] = merge2['Calendar'].astype(str) + '  ' + merge2['Real-Con'].astype(str)
+merge2['Fis_Earn'] = merge2['Calendar'].astype(str) + ': EPS  ' + merge2['EPS.Real-Con'].astype(str) + '% ' \
+                     'Rev ' + merge2['Rev.Real-Con'].astype(str) + '%'
 
 
 # normalizing each Quarter, using groupby, apply

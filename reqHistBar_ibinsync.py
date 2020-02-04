@@ -3,10 +3,10 @@ import pandas as pd
 import datetime as dt
 # util.startLoop()  # uncomment this line when in a notebook
 
-symbol1 = "AMZN"
+symbol1 = "TSLA"
 sectype = "STK"
 exchange1 = "SMART"
-enddatetime_temp = '20200201 00:00:00'
+enddatetime_temp = '20200205 00:00:00'
 duration1 = '3 Y'
 barsize1 = '2 hours'
 
