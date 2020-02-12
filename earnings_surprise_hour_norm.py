@@ -90,7 +90,6 @@ def normalizing(df):
 
 
 merge2 = merge2.groupby('Fis_Earn').apply(normalizing)
-merge2.to_csv('ddd.csv')
 
 
 ## make line chart
