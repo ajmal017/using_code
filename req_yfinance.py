@@ -16,9 +16,9 @@ from tqdm import tqdm
 
 yf.pdr_override()
 now = datetime.now()
-ticker1 = "AAPL"
+ticker1 = "TWTR"
 start_date = "1998-11-28"
-end_date = "2020-01-29"
+end_date = "2020-02-14"
 date_now = datetime.strftime(now, "%Y%m%d")
 
 # for multiple stock tickers from csv

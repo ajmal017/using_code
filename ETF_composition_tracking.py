@@ -19,5 +19,3 @@ df_norm = df.loc['2020-01-02':].apply(lambda x: x / x[0] * 10)
 weight_now = df_norm.apply(lambda x: x / df_norm.sum(axis=1) * 100)
 weight_now.to_csv('FNGU_weight_now.csv')
 print(weight_now)
-
-
