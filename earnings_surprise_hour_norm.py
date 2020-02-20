@@ -8,8 +8,8 @@ from pandas.core.common import SettingWithCopyWarning
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 
-ticker1 = 'DIS'
-file1 = 'DIS_20200205_3Y_2hours'
+ticker1 = 'NVDA'
+file1 = 'NVDA_20200215_3Y_2hours'
 ffil_days = 3
 # cleaning data of earning season
 
@@ -110,9 +110,11 @@ xticks = 'T' + np_xticks.astype(str) + 'h'
 plt.xticks(ticks=np.arange(0,(ffil_days+1)*4), labels=xticks)
 ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
-# set label
+# set label and grid
 ax.set_xlabel('hours after earnings')
 ax.set_ylabel('price movement')
+ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.5)
+
 
 # set color
 ax.set_prop_cycle('color', colors)

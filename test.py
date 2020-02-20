@@ -1,23 +1,32 @@
 import pandas as pd
 
-raw_df = pd.read_excel('etf_components.xlsx', sheet_name='FNGU')
-Symbol = raw_df['Symbol']
-Symbol.dropna(inplace=True)
-print(Symbol)
+raw_data = pd.read_excel('./data/buybacks.xlsx', index_col=0)
+raw_data.dropna(how='all', axis=0, inplace=True)
+raw_data.fillna(0, inplace=True)
 
-load_name = './db/' + Symbol + '.csv'
 
-# load data from database (of each symbols) and concat close data
+def digit_measure(string):
+    if len(string) > 3:
+        digit1, digit2 = string.split(sep='.')
+    if digit2[-1]=='M' and len(digit2) ==3:
+        digit = str(digit1) + digit2[:2] + '0000'
+    elif digit2[-1]=='M' and len(digit2) ==4:
+        digit = str(digit1) + digit2[:3] + '000'
+    elif digit2[-1]=='B' and len(digit2) ==3:
+        digit = str(digit1) + digit2[:2] + '0000000'
+    elif digit2[-1]=='B' and len(digit2) ==4:
+        digit = str(digit1) + digit2[:3] + '000000'
+    else: digit = 0
+    return digit
 
-df_from_each_file = (pd.read_csv(f, index_col=0, usecols=['Date', 'Close']) for f in load_name)
-df = pd.concat(df_from_each_file, ignore_index=False, join='inner', axis=1)
-df.columns = Symbol
+# print(range(1,len(raw_data.iloc[0,:])))
+# print(len(raw_data))
 
-# quarterly rebalancing weight , 10% each
+for i in range(len(raw_data)):
+    for j in range(1,len(raw_data.iloc[0,:])):
+        raw_data.iloc[i,j] = digit_measure(raw_data.iloc[i,j])
+#
+# print(raw_data)
 
-df_norm = df.loc['2020-01-02':].apply(lambda x: x / x[0] * 10)
-weight_now = df_norm.apply(lambda x: x / df_norm.sum(axis=1) * 100)
-weight_now.to_csv('FNGU_weight_now.csv')
-print(weight_now)
 
 

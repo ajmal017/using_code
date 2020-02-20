@@ -16,7 +16,6 @@ print(filename)
 load_name = './db/' + pd.Series(filename) + '.csv'
 
 dfs = (pd.read_csv(f, index_col=0, usecols=[0,4]) for f in load_name)
-print(dfs)
 df = pd.concat(dfs, ignore_index=False, join='inner', axis=1)
 df.columns = filename
 correl = df.corr(method='pearson')
