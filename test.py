@@ -1,36 +1,99 @@
+# https://github.com/farhadab/sec-edgar-financials
 import pandas as pd
-import numpy as np
+from edgar.stock import Stock
+import sys
+import os
+from functools import reduce
 
-raw_data = pd.read_excel('./data/buybacks.xlsx', header=0, index_col=0, na_values=[0,np.nan])
-raw_data.dropna(how='all', axis=0, inplace=True)
-raw_data.fillna('00.00M', inplace=True)
+ticker1 = 'AAPL'
+stock = Stock(ticker1)
+
+years = [2017, 2018, 2019, 2020]
+quarters = [1, 2, 3, 4]
+period = 'quarterly'  # or 'annual', which is the default
+
+file_names = []
+# main
+
+for y in years:
+    for q in quarters:
+        try:
+            year = y  # can use default of 0 to get the latest
+            quarter = q  # 1, 2, 3, 4, or default value of 0 to get the latest
+            # using defaults to get the latest annual, can simplify to stock.get_filing()
+            filing = stock.get_filing(period, year, quarter)
+
+            # financial reports (contain data for multiple years)
+            income_statements = filing.get_income_statements()
+            balance_sheets = filing.get_balance_sheets()
+            cash_flows = filing.get_cash_flows()
+
+            all_statements = [income_statements, balance_sheets, cash_flows]
+            # quarter name
+            quarter_name = str(quarter) + 'Q' + str(year)[2:]
+
+            # iterate to make each IS,BS, CF files
+            for i, sheet in enumerate(all_statements):
+                file_path = './test/' + ticker1 + str(i) + quarter_name + '.csv'
+
+                # get excel file with sys.stdout changing
+
+                sys.stdout = open(file_path, 'w', encoding='unicode_escape')
+                print(sheet)
+
+                # reset sys.stdout
+
+                sys.stdout = sys.__stdout__
+
+                # data cleaning
+
+                read_csv = pd.Series(pd.read_csv(file_path, encoding='unicode_escape').columns)
+                raw_string = read_csv.str.cat(sep=',')
+                raw_list = pd.Series(raw_string.split("us-gaap_"))
+                raw_df = raw_list.str.split("': ", expand=True)
+
+                # select columns : label and value
+
+                df = raw_df.iloc[:, [0, 2, 3]]
+                df.columns = ['Name', 'Label', quarter_name]
+                df = df.iloc[range(int(len(df) / 2 + 1))]
+                for i in range(len(df.Name)):
+                    df['Label'][i] = ''.join(
+                        ' ' + char if char.isupper() else char.strip() for char in df['Name'][i]).strip()
+                df.drop(0, axis=0, inplace=True)
+                df.reset_index(drop=True, inplace=True)
+
+                # extract only numeric value
+                df[quarter_name] = df[quarter_name].str.extract(r'([-+]?\d+.\d+)')
+                df.to_csv(file_path)
+
+                # print(df)
+
+            # concat all statements
+
+            for i, sheet in enumerate(all_statements):
+                file_path = './test/' + ticker1 + str(i) + quarter_name + '.csv'
+                globals()['df_' + str(i)] = pd.read_csv(file_path, index_col=0)
+                os.remove(file_path)
+            concat_df = pd.concat([df_0, df_1, df_2], ignore_index=True)
 
 
-# Million , Billion  cleaning
+            # print(concat_df)
 
-def digit_measure(string):
-    digit1, digit2 = string.split(sep='.')
-    if digit2[-1]=='M' and len(digit2) ==3:
-        digit = str(digit1) + digit2[:2] + '0000'
-    elif digit2[-1]=='M' and len(digit2) ==4:
-        digit = str(digit1) + digit2[:3] + '000'
-    elif digit2[-1]=='B' and len(digit2) ==3:
-        digit = str(digit1) + digit2[:2] + '0000000'
-    elif digit2[-1]=='B' and len(digit2) ==4:
-        digit = str(digit1) + digit2[:3] + '000000'
-    else: digit = 0
-    return digit
+            final_file_path = './test/' + ticker1 + '_' + quarter_name + '.csv'
+            file_names.append(ticker1 + '_' + quarter_name)
+            concat_df.to_csv(final_file_path)
+        except: pass
 
+# finally merge by quarters
 
-tickers = raw_data.columns
-buybacks = pd.DataFrame()
-for i in range(len(tickers)):
-    buybacks[tickers[i]] = raw_data.iloc[:,i].transform(lambda x: digit_measure(x))
-buybacks = buybacks.apply(pd.to_numeric)
-buybacks['Sum(Bil.$)'] = buybacks.apply(np.sum, axis=1)
-buybacks = round(buybacks.transform(lambda x: x/1000000000),2)
-print(buybacks)
-buybacks.to_excel('./data/buybacks_cleaned.xlsx')
+load_name = './test/' + pd.Series(file_names) + '.csv'
+dfs = (pd.read_csv(f, index_col=0) for f in load_name)
 
+df_merged = pd.concat(dfs, join='outer', axis=1)
+df_merged.to_csv('./test/' + ticker1 + '_financial_data' + '.csv')
 
-
+df_reduce = reduce(lambda left,right: pd.merge(left, right,
+                                              left_index=True, right_index=True,
+                                              how='outer'),dfs)
+df_reduce.to_csv('dsd.csv')

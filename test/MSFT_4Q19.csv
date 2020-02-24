@@ -1,0 +1,75 @@
+,Name,Label,4Q19
+0,RevenueFromContractWithCustomerExcludingAssessedTax,Revenue From Contract With Customer Excluding Assessed Tax,33055000000.0
+1,CostOfGoodsAndServicesSold,Cost Of Goods And Services Sold,10406000000.0
+2,GrossProfit,Gross Profit,22649000000.0
+3,ResearchAndDevelopmentExpense,Research And Development Expense,4565000000.0
+4,SellingAndMarketingExpense,Selling And Marketing Expense,4337000000.0
+5,GeneralAndAdministrativeExpense,General And Administrative Expense,1061000000.0
+6,OperatingIncomeLoss,Operating Income Loss,12686000000.0
+7,NonoperatingIncomeExpense,Nonoperating Income Expense,0.0
+8,IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments,Income Loss From Continuing Operations Before Income Taxes Minority Interest And Income Loss From Equity Method Investments,12686000000.0
+9,IncomeTaxExpenseBenefit,Income Tax Expense Benefit,2008000000.0
+10,NetIncomeLoss,Net Income Loss,10678000000.0
+11,EarningsPerShareBasic,Earnings Per Share Basic,1.4
+12,EarningsPerShareDiluted,Earnings Per Share Diluted,1.38
+13,WeightedAverageNumberOfSharesOutstandingBasic,Weighted Average Number Of Shares Outstanding Basic,7634000000.0
+14,WeightedAverageNumberOfDilutedSharesOutstanding,Weighted Average Number Of Diluted Shares Outstanding,7710000000.0
+15,CashAndCashEquivalentsAtCarryingValue,Cash And Cash Equivalents At Carrying Value,13117000000.0
+16,ShortTermInvestments,Short Term Investments,123519000000.0
+17,CashCashEquivalentsAndShortTermInvestments,Cash Cash Equivalents And Short Term Investments,136636000000.0
+18,AccountsReceivableNetCurrent,Accounts Receivable Net Current,19087000000.0
+19,InventoryNet,Inventory Net,2622000000.0
+20,OtherAssetsCurrent,Other Assets Current,7551000000.0
+21,AssetsCurrent,Assets Current,165896000000.0
+22,PropertyPlantAndEquipmentNet,Property Plant And Equipment Net,38409000000.0
+23,OperatingLeaseRightOfUseAsset,Operating Lease Right Of Use Asset,7890000000.0
+24,LongTermInvestments,Long Term Investments,2684000000.0
+25,Goodwill,Goodwill,42113000000.0
+26,FiniteLivedIntangibleAssetsNet,Finite Lived Intangible Assets Net,7508000000.0
+27,OtherAssetsNoncurrent,Other Assets Noncurrent,14455000000.0
+28,Assets,Assets,278955000000.0
+29,AccountsPayableCurrent,Accounts Payable Current,8574000000.0
+30,LongTermDebtCurrent,Long Term Debt Current,3017000000.0
+31,EmployeeRelatedLiabilitiesCurrent,Employee Related Liabilities Current,4676000000.0
+32,AccruedIncomeTaxesCurrent,Accrued Income Taxes Current,3440000000.0
+33,ContractWithCustomerLiabilityCurrent,Contract With Customer Liability Current,29904000000.0
+34,OtherLiabilitiesCurrent,Other Liabilities Current,8507000000.0
+35,LiabilitiesCurrent,Liabilities Current,58118000000.0
+36,LongTermDebtNoncurrent,Long Term Debt Noncurrent,66478000000.0
+37,AccruedIncomeTaxesNoncurrent,Accrued Income Taxes Noncurrent,28457000000.0
+38,ContractWithCustomerLiabilityNoncurrent,Contract With Customer Liability Noncurrent,4122000000.0
+39,DeferredIncomeTaxLiabilitiesNet,Deferred Income Tax Liabilities Net,234000000.0
+40,OperatingLeaseLiabilityNoncurrent,Operating Lease Liability Noncurrent,6659000000.0
+41,OtherLiabilitiesNoncurrent,Other Liabilities Noncurrent,8826000000.0
+42,Liabilities,Liabilities,172894000000.0
+43,CommonStocksIncludingAdditionalPaidInCapital,Common Stocks Including Additional Paid In Capital,78882000000.0
+44,RetainedEarningsAccumulatedDeficit,Retained Earnings Accumulated Deficit,27240000000.0
+45,AccumulatedOtherComprehensiveIncomeLossNetOfTax,Accumulated Other Comprehensive Income Loss Net Of Tax,-61000000.0
+46,StockholdersEquity,Stockholders Equity,106061000000.0
+47,LiabilitiesAndStockholdersEquity,Liabilities And Stockholders Equity,278955000000.0
+48,NetIncomeLoss,Net Income Loss,10678000000.0
+49,ShareBasedCompensation,Share Based Compensation,1262000000.0
+50,DeferredIncomeTaxExpenseBenefit,Deferred Income Tax Expense Benefit,-177000000.0
+51,IncreaseDecreaseInAccountsReceivable,Increase Decrease In Accounts Receivable,10090000000.0
+52,IncreaseDecreaseInInventories,Increase Decrease In Inventories,-561000000.0
+53,IncreaseDecreaseInOtherCurrentAssets,Increase Decrease In Other Current Assets,-438000000.0
+54,IncreaseDecreaseInOtherNoncurrentAssets,Increase Decrease In Other Noncurrent Assets,-333000000.0
+55,IncreaseDecreaseInAccountsPayable,Increase Decrease In Accounts Payable,-547000000.0
+56,IncreaseDecreaseInContractWithCustomerLiability,Increase Decrease In Contract With Customer Liability,-2892000000.0
+57,IncreaseDecreaseInAccruedIncomeTaxesPayable,Increase Decrease In Accrued Income Taxes Payable,-3336000000.0
+58,IncreaseDecreaseInOtherCurrentLiabilities,Increase Decrease In Other Current Liabilities,-3320000000.0
+59,IncreaseDecreaseInOtherNoncurrentLiabilities,Increase Decrease In Other Noncurrent Liabilities,410000000.0
+60,NetCashProvidedByUsedInOperatingActivities,Net Cash Provided By Used In Operating Activities,13818000000.0
+61,RepaymentsOfDebtMaturingInMoreThanThreeMonths,Repayments Of Debt Maturing In More Than Three Months,-2500000000.0
+62,ProceedsFromIssuanceOfCommonStock,Proceeds From Issuance Of Common Stock,427000000.0
+63,PaymentsForRepurchaseOfCommonStock,Payments For Repurchase Of Common Stock,-4912000000.0
+64,PaymentsOfDividendsCommonStock,Payments Of Dividends Common Stock,-3510000000.0
+65,ProceedsFromPaymentsForOtherFinancingActivities,Proceeds From Payments For Other Financing Activities,286000000.0
+66,NetCashProvidedByUsedInFinancingActivities,Net Cash Provided By Used In Financing Activities,-10209000000.0
+67,PaymentsToAcquirePropertyPlantAndEquipment,Payments To Acquire Property Plant And Equipment,-3385000000.0
+68,PaymentsToAcquireInvestments,Payments To Acquire Investments,-23390000000.0
+69,ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities,Proceeds From Maturities Prepayments And Calls Of Available For Sale Securities,19082000000.0
+70,NetCashProvidedByUsedInInvestingActivities,Net Cash Provided By Used In Investing Activities,-1776000000.0
+71,EffectOfExchangeRateOnCashAndCashEquivalents,Effect Of Exchange Rate On Cash And Cash Equivalents,-72000000.0
+72,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect,Cash Cash Equivalents Restricted Cash And Restricted Cash Equivalents Period Increase Decrease Including Exchange Rate Effect,1761000000.0
+73,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents,Cash Cash Equivalents Restricted Cash And Restricted Cash Equivalents,11356000000.0
