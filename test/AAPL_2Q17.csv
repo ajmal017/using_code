@@ -1,94 +1,78 @@
-,Name,Label,2Q17
-0,SalesRevenueNet,Sales Revenue Net,52896000000.0
-1,CostOfGoodsAndServicesSold,Cost Of Goods And Services Sold,32305000000.0
-2,GrossProfit,Gross Profit,20591000000.0
-3,ResearchAndDevelopmentExpense,Research And Development Expense,2776000000.0
-4,SellingGeneralAndAdministrativeExpense,Selling General And Administrative Expense,3718000000.0
-5,OperatingExpenses,Operating Expenses,6494000000.0
-6,OperatingIncomeLoss,Operating Income Loss,14097000000.0
-7,NonoperatingIncomeExpense,Nonoperating Income Expense,587000000.0
-8,IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest,Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest,14684000000.0
-9,IncomeTaxExpenseBenefit,Income Tax Expense Benefit,3655000000.0
-10,NetIncomeLoss,Net Income Loss,11029000000.0
-11,EarningsPerShareBasic,Earnings Per Share Basic,2.11
-12,EarningsPerShareDiluted,Earnings Per Share Diluted,2.1
-13,WeightedAverageNumberOfSharesOutstandingBasic,Weighted Average Number Of Shares Outstanding Basic,5225791000.0
-14,WeightedAverageNumberOfDilutedSharesOutstanding,Weighted Average Number Of Diluted Shares Outstanding,5261688000.0
-15,CommonStockDividendsPerShareDeclared,Common Stock Dividends Per Share Declared,0.57
-16,SalesRevenueNet,Sales Revenue Net,50557000000.0
-17,CostOfGoodsAndServicesSold,Cost Of Goods And Services Sold,30636000000.0
-18,GrossProfit,Gross Profit,19921000000.0
-19,ResearchAndDevelopmentExpense,Research And Development Expense,2511000000.0
-20,SellingGeneralAndAdministrativeExpense,Selling General And Administrative Expense,3423000000.0
-21,OperatingExpenses,Operating Expenses,5934000000.0
-22,OperatingIncomeLoss,Operating Income Loss,13987000000.0
-23,NonoperatingIncomeExpense,Nonoperating Income Expense,155000000.0
-24,IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest,Income Loss From Continuing Operations Before Income Taxes Extraordinary Items Noncontrolling Interest,14142000000.0
-25,IncomeTaxExpenseBenefit,Income Tax Expense Benefit,3626000000.0
-26,NetIncomeLoss,Net Income Loss,10516000000.0
-27,EarningsPerShareBasic,Earnings Per Share Basic,1.91
-28,EarningsPerShareDiluted,Earnings Per Share Diluted,1.9
-29,WeightedAverageNumberOfSharesOutstandingBasic,Weighted Average Number Of Shares Outstanding Basic,5514381000.0
-30,WeightedAverageNumberOfDilutedSharesOutstanding,Weighted Average Number Of Diluted Shares Outstanding,5540886000.0
-31,CommonStockDividendsPerShareDeclared,Common Stock Dividends Per Share Declared,0.52
-32,CashAndCashEquivalentsAtCarryingValue,Cash And Cash Equivalents At Carrying Value,15157000000.0
-33,AvailableForSaleSecuritiesCurrent,Available For Sale Securities Current,51944000000.0
-34,AccountsReceivableNetCurrent,Accounts Receivable Net Current,11579000000.0
-35,InventoryNet,Inventory Net,2910000000.0
-36,NontradeReceivablesCurrent,Nontrade Receivables Current,9033000000.0
-37,OtherAssetsCurrent,Other Assets Current,11367000000.0
-38,AssetsCurrent,Assets Current,101990000000.0
-39,AvailableForSaleSecuritiesNoncurrent,Available For Sale Securities Noncurrent,189740000000.0
-40,PropertyPlantAndEquipmentNet,Property Plant And Equipment Net,27163000000.0
-41,Goodwill,Goodwill,5473000000.0
-42,IntangibleAssetsNetExcludingGoodwill,Intangible Assets Net Excluding Goodwill,2617000000.0
-43,OtherAssetsNoncurrent,Other Assets Noncurrent,7549000000.0
-44,Assets,Assets,334532000000.0
-45,AccountsPayableCurrent,Accounts Payable Current,28573000000.0
-46,AccruedLiabilitiesCurrent,Accrued Liabilities Current,23096000000.0
-47,DeferredRevenueCurrent,Deferred Revenue Current,7682000000.0
-48,CommercialPaper,Commercial Paper,9992000000.0
-49,LongTermDebtCurrent,Long Term Debt Current,3999000000.0
-50,LiabilitiesCurrent,Liabilities Current,73342000000.0
-51,DeferredRevenueNoncurrent,Deferred Revenue Noncurrent,3107000000.0
-52,LongTermDebtNoncurrent,Long Term Debt Noncurrent,84531000000.0
-53,OtherLiabilitiesNoncurrent,Other Liabilities Noncurrent,39470000000.0
-54,Liabilities,Liabilities,200450000000.0
-55,CommonStocksIncludingAdditionalPaidInCapital,Common Stocks Including Additional Paid In Capital,33579000000.0
-56,RetainedEarningsAccumulatedDeficit,Retained Earnings Accumulated Deficit,100925000000.0
-57,AccumulatedOtherComprehensiveIncomeLossNetOfTax,Accumulated Other Comprehensive Income Loss Net Of Tax,-422000000.0
-58,StockholdersEquity,Stockholders Equity,134082000000.0
-59,LiabilitiesAndStockholdersEquity,Liabilities And Stockholders Equity,334532000000.0
-60,CashAndCashEquivalentsAtCarryingValue,Cash And Cash Equivalents At Carrying Value,20484000000.0
-61,NetIncomeLoss,Net Income Loss,28920000000.0
-62,DepreciationAmortizationAndAccretionNet,Depreciation Amortization And Accretion Net,5319000000.0
-63,ShareBasedCompensation,Share Based Compensation,2473000000.0
-64,DeferredIncomeTaxExpenseBenefit,Deferred Income Tax Expense Benefit,2822000000.0
-65,OtherNoncashIncomeExpense,Other Noncash Income Expense,-209000000.0
-66,IncreaseDecreaseInAccountsReceivable,Increase Decrease In Accounts Receivable,4183000000.0
-67,IncreaseDecreaseInInventories,Increase Decrease In Inventories,-778000000.0
-68,IncreaseDecreaseInOtherReceivables,Increase Decrease In Other Receivables,4512000000.0
-69,IncreaseDecreaseInOtherOperatingAssets,Increase Decrease In Other Operating Assets,-896000000.0
-70,IncreaseDecreaseInAccountsPayable,Increase Decrease In Accounts Payable,-6862000000.0
-71,IncreaseDecreaseInDeferredRevenue,Increase Decrease In Deferred Revenue,-221000000.0
-72,IncreaseDecreaseInOtherOperatingLiabilities,Increase Decrease In Other Operating Liabilities,316000000.0
-73,NetCashProvidedByUsedInOperatingActivities,Net Cash Provided By Used In Operating Activities,39579000000.0
-74,PaymentsToAcquireAvailableForSaleSecurities,Payments To Acquire Available For Sale Securities,-99821000000.0
-75,ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities,Proceeds From Maturities Prepayments And Calls Of Available For Sale Securities,12429000000.0
-76,ProceedsFromSaleOfAvailableForSaleSecurities,Proceeds From Sale Of Available For Sale Securities,60454000000.0
-77,PaymentsToAcquireBusinessesNetOfCashAcquired,Payments To Acquire Businesses Net Of Cash Acquired,-67000000.0
-78,PaymentsToAcquirePropertyPlantAndEquipment,Payments To Acquire Property Plant And Equipment,-6309000000.0
-79,PaymentsToAcquireIntangibleAssets,Payments To Acquire Intangible Assets,-126000000.0
-80,PaymentsToAcquireOtherInvestments,Payments To Acquire Other Investments,0.0
-81,PaymentsForProceedsFromOtherInvestingActivities,Payments For Proceeds From Other Investing Activities,116000000.0
-82,NetCashProvidedByUsedInInvestingActivities,Net Cash Provided By Used In Investing Activities,-33324000000.0
-83,ProceedsFromIssuanceOfCommonStock,Proceeds From Issuance Of Common Stock,273000000.0
-84,ExcessTaxBenefitFromShareBasedCompensationFinancingActivities,Excess Tax Benefit From Share Based Compensation Financing Activities,225000000.0
-85,PaymentsRelatedToTaxWithholdingForShareBasedCompensation,Payments Related To Tax Withholding For Share Based Compensation,-788000000.0
-86,PaymentsForRepurchaseOfCommonStock,Payments For Repurchase Of Common Stock,-18012000000.0
-87,ProceedsFromIssuanceOfLongTermDebt,Proceeds From Issuance Of Long Term Debt,10975000000.0
-88,ProceedsFromRepaymentsOfCommercialPaper,Proceeds From Repayments Of Commercial Paper,1879000000.0
-89,NetCashProvidedByUsedInFinancingActivities,Net Cash Provided By Used In Financing Activities,-11582000000.0
-90,CashAndCashEquivalentsPeriodIncreaseDecrease,Cash And Cash Equivalents Period Increase Decrease,-5327000000.0
-91,IncomeTaxesPaidNet,Income Taxes Paid Net,6878000000.0
-92,InterestPaid,Interest Paid,1007000000.0
+Label,2Q17
+IS_SalesRevenueNet,52896000000.0
+IS_CostOfGoodsAndServicesSold,32305000000.0
+IS_GrossProfit,20591000000.0
+IS_ResearchAndDevelopmentExpense,2776000000.0
+IS_SellingGeneralAndAdministrativeExpense,3718000000.0
+IS_OperatingExpenses,6494000000.0
+IS_OperatingIncomeLoss,14097000000.0
+IS_NonoperatingIncomeExpense,587000000.0
+IS_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest,14684000000.0
+IS_IncomeTaxExpenseBenefit,3655000000.0
+IS_NetIncomeLoss,11029000000.0
+IS_EarningsPerShareBasic,2.11
+IS_EarningsPerShareDiluted,2.1
+IS_WeightedAverageNumberOfSharesOutstandingBasic,5225791000.0
+IS_WeightedAverageNumberOfDilutedSharesOutstanding,5261688000.0
+IS_CommonStockDividendsPerShareDeclared,0.57
+BS_CashAndCashEquivalentsAtCarryingValue,15157000000.0
+BS_AvailableForSaleSecuritiesCurrent,51944000000.0
+BS_AccountsReceivableNetCurrent,11579000000.0
+BS_InventoryNet,2910000000.0
+BS_NontradeReceivablesCurrent,9033000000.0
+BS_OtherAssetsCurrent,11367000000.0
+BS_AssetsCurrent,101990000000.0
+BS_AvailableForSaleSecuritiesNoncurrent,189740000000.0
+BS_PropertyPlantAndEquipmentNet,27163000000.0
+BS_Goodwill,5473000000.0
+BS_IntangibleAssetsNetExcludingGoodwill,2617000000.0
+BS_OtherAssetsNoncurrent,7549000000.0
+BS_Assets,334532000000.0
+BS_AccountsPayableCurrent,28573000000.0
+BS_AccruedLiabilitiesCurrent,23096000000.0
+BS_DeferredRevenueCurrent,7682000000.0
+BS_CommercialPaper,9992000000.0
+BS_LongTermDebtCurrent,3999000000.0
+BS_LiabilitiesCurrent,73342000000.0
+BS_DeferredRevenueNoncurrent,3107000000.0
+BS_LongTermDebtNoncurrent,84531000000.0
+BS_OtherLiabilitiesNoncurrent,39470000000.0
+BS_Liabilities,200450000000.0
+BS_CommonStocksIncludingAdditionalPaidInCapital,33579000000.0
+BS_RetainedEarningsAccumulatedDeficit,100925000000.0
+BS_AccumulatedOtherComprehensiveIncomeLossNetOfTax,-422000000.0
+BS_StockholdersEquity,134082000000.0
+BS_LiabilitiesAndStockholdersEquity,334532000000.0
+CF_CashAndCashEquivalentsAtCarryingValue,20484000000.0
+CF_NetIncomeLoss,28920000000.0
+CF_DepreciationAmortizationAndAccretionNet,5319000000.0
+CF_ShareBasedCompensation,2473000000.0
+CF_DeferredIncomeTaxExpenseBenefit,2822000000.0
+CF_OtherNoncashIncomeExpense,-209000000.0
+CF_IncreaseDecreaseInAccountsReceivable,4183000000.0
+CF_IncreaseDecreaseInInventories,-778000000.0
+CF_IncreaseDecreaseInOtherReceivables,4512000000.0
+CF_IncreaseDecreaseInOtherOperatingAssets,-896000000.0
+CF_IncreaseDecreaseInAccountsPayable,-6862000000.0
+CF_IncreaseDecreaseInDeferredRevenue,-221000000.0
+CF_IncreaseDecreaseInOtherOperatingLiabilities,316000000.0
+CF_NetCashProvidedByUsedInOperatingActivities,39579000000.0
+CF_PaymentsToAcquireAvailableForSaleSecurities,-99821000000.0
+CF_ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities,12429000000.0
+CF_ProceedsFromSaleOfAvailableForSaleSecurities,60454000000.0
+CF_PaymentsToAcquireBusinessesNetOfCashAcquired,-67000000.0
+CF_PaymentsToAcquirePropertyPlantAndEquipment,-6309000000.0
+CF_PaymentsToAcquireIntangibleAssets,-126000000.0
+CF_PaymentsToAcquireOtherInvestments,0.0
+CF_PaymentsForProceedsFromOtherInvestingActivities,116000000.0
+CF_NetCashProvidedByUsedInInvestingActivities,-33324000000.0
+CF_ProceedsFromIssuanceOfCommonStock,273000000.0
+CF_ExcessTaxBenefitFromShareBasedCompensationFinancingActivities,225000000.0
+CF_PaymentsRelatedToTaxWithholdingForShareBasedCompensation,-788000000.0
+CF_PaymentsForRepurchaseOfCommonStock,-18012000000.0
+CF_ProceedsFromIssuanceOfLongTermDebt,10975000000.0
+CF_ProceedsFromRepaymentsOfCommercialPaper,1879000000.0
+CF_NetCashProvidedByUsedInFinancingActivities,-11582000000.0
+CF_CashAndCashEquivalentsPeriodIncreaseDecrease,-5327000000.0
+CF_IncomeTaxesPaidNet,6878000000.0
+CF_InterestPaid,1007000000.0

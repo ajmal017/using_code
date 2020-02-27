@@ -3,12 +3,14 @@ import pandas as pd
 import datetime as dt
 # util.startLoop()  # uncomment this line when in a notebook
 
-symbol1 = "NVDA"
-sectype = "STK"
-exchange1 = "SMART"
+symbol1 = "DAX"
+sectype = "IND"
+exchange1 = "DTB"
+currency = "EUR"
+primaryexchange = ""
 enddatetime_temp = '20200215 00:00:00'
-duration1 = '3 Y'
-barsize1 = '2 hours'
+duration1 = '1 Y'
+barsize1 = '1 day'
 
 
 # for timezone setting
@@ -23,8 +25,8 @@ contract = Contract()
 contract.symbol = symbol1
 contract.secType = sectype
 contract.exchange = exchange1
-contract.currency = "USD"
-contract.primaryExchange = "ISLAND"
+contract.currency = currency
+contract.primaryExchange = primaryexchange
 
 bars = ib.reqHistoricalData(
     contract, endDateTime= enddatetime1, durationStr=duration1,
