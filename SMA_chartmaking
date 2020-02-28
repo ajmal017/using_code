@@ -2,27 +2,34 @@ import pandas as pd
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from mpl_finance import *
-
+import FinanceDataReader as fdr
 from pandas.core.common import SettingWithCopyWarning
 import warnings
+
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 # use ticker1 variable for plot label.
-ticker1 = 'NASDAQ'
+ticker1 = 'WTI Crude Oil'
+
+## read csv data
 path = './db/' + 'COMP_20200229_3Y_1day' + '.csv'
 MA_num = [5, 120, 200]
 
 # want to draw SMA lines,  use longer period of data.
 # set raw_  at first,  and slicing data to raw_data
+
 raw_ = pd.read_csv(path, index_col='Date')
 raw_.index = pd.to_datetime(raw_.index)
 
 
+## or I can use Financial DataReaders data
+raw_ = fdr.DataReader('CL', '2017')
+
+
 # convert date to num for using
-raw_data = raw_.iloc[100:,:]
+raw_data = raw_.iloc[100:, :]
 raw_data.index = pd.to_datetime(raw_data.index)
 raw_data['Datetonum'] = [mdates.date2num(d) for d in raw_data.index]
-
 
 # Re-arrange data so that each row contains values of a day for candlestick's quote:
 # 'date','open','high','low','close'.
@@ -33,28 +40,25 @@ SMA_data = pd.DataFrame(index=raw_.index)
 for g in range(len(MA_num)):
     SMA_data[str(MA_num[g]) + 'MA'] = raw_['Close'].rolling(MA_num[g]).mean()
 
-
 # visualize candle
-fig, ax = plt.subplots(figsize=(12,7))
+fig, ax = plt.subplots(figsize=(12, 7))
 candlestick_ohlc(ax, quote, width=0.05, colorup='g', colordown='r')
 
 # visualize SMA data. using specific color by MAs
-ax.plot(SMA_data.iloc[:,1], linewidth=0.5, color='b')
-ax.plot(SMA_data.iloc[:,2], linewidth=0.5, color='r')
-
+ax.plot(SMA_data.iloc[:, 1], linewidth=0.5, color='b')
+ax.plot(SMA_data.iloc[:, 2], linewidth=0.5, color='r')
 
 # annotate 120MA
-plt.annotate(int(SMA_data.iloc[-1,1]), color='b', fontsize=6,
-             xy=(SMA_data.index[-1], SMA_data.iloc[-1,1]))
+annot1 = ax.annotate(int(SMA_data.iloc[-1, 1]), color='b', fontsize=6,
+                     xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]), label='120MA')
 
 # annotate 200MA
-plt.annotate(int(SMA_data.iloc[-1,2]), color='r', fontsize=7,
-             xy=(SMA_data.index[-1], SMA_data.iloc[-1,2]))
+annot2 = ax.annotate(int(SMA_data.iloc[-1, 2]), color='r', fontsize=7,
+                     xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]), label='200MA')
 
 # annotate last_price
-plt.annotate(int(raw_data['Close'][-1]), color='k', fontsize=9,
-             xy=(SMA_data.index[-1], raw_data['Close'][-1]))
-
+annot3 = ax.annotate(int(raw_data['Close'][-1]), color='k', fontsize=9,
+                     xy=(SMA_data.index[-1], raw_data['Close'][-1]), label='Current')
 
 # axes setting
 ax.set_ylabel(ticker1, color='g')
