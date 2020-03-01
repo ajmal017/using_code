@@ -9,11 +9,11 @@ import warnings
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 # use ticker1 variable for plot label.
-ticker1 = 'KOSPI'
+ticker1 = 'DOW'
 observation_period = 1000
 
 # read csv data
-path = './db/' + 'INDU_20200301_10Y_1day' + '.csv'
+path = './ib_db/' + 'INDU_20200301_10Y_1day' + '.csv'
 MA_num = [5, 120, 200, 967]
 
 # want to draw SMA lines,  use longer period of data.
@@ -23,6 +23,8 @@ raw_ = pd.read_csv(path, index_col='Date')
 raw_.index = pd.to_datetime(raw_.index)
 
 # or I can use Financial DataReaders data
+# https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
+# WTI : CL , KOSPI: KS11 , KOSDAQ : KQ11 , VIX : VIX , Gold : GC , Bond : US10YT=X , KR10YT=RR , currency : BTC/KRW
 # raw_ = fdr.DataReader('KS11', '2010')
 
 # convert date to num for using
@@ -41,7 +43,7 @@ for g in range(len(MA_num)):
 SMA_data = SMA_data_.iloc[observation_period:, :]
 
 # visualize candle
-fig, ax = plt.subplots(figsize=(12,10))
+fig, ax = plt.subplots(figsize=(14,8))
 candlestick_ohlc(ax, quote, width=0.05, colorup='g', colordown='r')
 
 # visualize SMA data. using specific color by MAs
@@ -80,6 +82,6 @@ ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
 plt.legend()
 plt.gcf().autofmt_xdate()
 plt.autoscale()
-
+plt.tight_layout()
 plt.savefig('./charts/' + ticker1 + str(observation_period) + 'SMA.png')
 plt.show()

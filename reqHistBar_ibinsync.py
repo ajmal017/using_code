@@ -3,14 +3,16 @@ import pandas as pd
 import datetime as dt
 # util.startLoop()  # uncomment this line when in a notebook
 
-symbol1 = "DAX"
+# DOW  s: INDU, e: CME / NASDAQ s: COMP e: NASDAQ / SPX s: SPX e: CBOE / DAX s: DAX e: DTB c: EUR
+
+symbol1 = "SPX"
 sectype = "IND"
-exchange1 = "DTB"
-currency = "EUR"
+exchange1 = "CBOE"
+currency = "USD"
 primaryexchange = ""
-enddatetime_temp = '20200215 00:00:00'
-duration1 = '1 Y'
-barsize1 = '1 day'
+enddatetime_temp = '20200301 00:00:00'
+duration1 = '2 W'
+barsize1 = '30 mins'
 
 
 # for timezone setting

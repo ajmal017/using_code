@@ -13,8 +13,8 @@ ticker1 = 'NASDAQ'
 observation_period = -100
 
 # read csv data
-path_for_SMA = './db/' + 'COMP_20200301_10Y_1day' + '.csv'
-path_for_candle = './db/' + 'COMP_20200301_2W_30mins' + '.csv'
+path_for_SMA = './ib_db/' + 'COMP_20200301_10Y_1day' + '.csv'
+path_for_candle = './ib_db/' + 'COMP_20200301_2W_30mins' + '.csv'
 MA_num = [5, 120, 200, 967]
 
 # want to draw SMA lines,  use longer period of data.
@@ -46,7 +46,7 @@ merge1.reset_index(inplace=True)
 print(merge1)
 
 # visualize candle
-fig, ax = plt.subplots(figsize=(12,10))
+fig, ax = plt.subplots(figsize=(14,9))
 candlestick2_ohlc(ax, merge1['Open'], merge1['High'], merge1['Low'], merge1['Close'],
                   width=0.2, colorup='g', colordown='r')
 
@@ -73,21 +73,21 @@ ax.xaxis.set_major_formatter(ticker.FixedFormatter(name_list))
 #
 # # annotate 120MA
 ax.annotate(int(merge1.iloc[-1, -3]), color='b', fontsize=7,
-                     xy=(merge1.index[-1], merge1.iloc[-1, -3]+2))
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -3]+2))
 #
 # #
 # # annotate 200MA
 ax.annotate(int(merge1.iloc[-1, -2]), color='r', fontsize=7,
-                     xy=(merge1.index[-1], merge1.iloc[-1, -2]))
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -2]))
 #
 # # annotate 200week MA
 # ax.annotate(int(SMA_data.iloc[-1, 3]), color='pink', fontsize=7,
-#                      xy=(SMA_data.index[-1], SMA_data.iloc[-1, 3]))
+#                      xy=(SMA_data.index[-1]+1, SMA_data.iloc[-1, 3]))
 #
 #
 # annotate last_price
 ax.annotate(merge1.iloc[-1, 5], color='k', fontsize=9,
-                     xy=(merge1.index[-1], merge1.iloc[-1, 5]), label='Current')
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, 5]), label='Current')
 #
 # axes setting
 ax.set_ylabel(ticker1, color='g')
@@ -98,6 +98,6 @@ ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
 
 # Beautify the x-labels
 plt.legend()
-
-# plt.savefig('./charts/' + ticker1 + str(observation_period) + 'SMA.png')
+plt.tight_layout()
+plt.savefig('./charts/' + ticker1 + '30mins_SMA.png')
 plt.show()
