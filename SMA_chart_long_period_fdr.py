@@ -5,30 +5,28 @@ from mpl_finance import *
 import FinanceDataReader as fdr
 from pandas.core.common import SettingWithCopyWarning
 import warnings
-
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 # use ticker1 variable for plot label.
-ticker1 = 'Bitcoin'
-observation_period = 1000
+# https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
 
-# read csv data
-path = './ib_db/' + 'INDU_20200301_10Y_1day' + '.csv'
+ticker1 = 'GOOGL'
+
+tickers = {
+    'WTI':'CL', 'KOSPI':'KS11', 'KOSDAQ':'KQ11','VIX':'VIX','Gold':'GC', 'Silver':'SI',
+    'US10Y':'US10YT=X', 'KR10Y':'KR10YT=RR', 'Bitcoin':'BTC/USD', 'DOW':'DJI', 'GAS':'NG',
+    'NASDAQ':'IXIC', 'S&P500':'US500', 'NIKKEI':'JP225', 'DAX':'DE30'}
 MA_num = [5, 120, 200, 967]
 
-# want to draw SMA lines,  use longer period of data.
-# set raw_  at first,  and slicing data to raw_data
+if ticker1 in tickers:
+    ticker = tickers[ticker1]
+else:
+    ticker = ticker1
 
-raw_ = pd.read_csv(path, index_col='Date')
-raw_.index = pd.to_datetime(raw_.index)
-
-# or I can use Financial DataReaders data
-# https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
-# WTI : CL , KOSPI: KS11 , KOSDAQ : KQ11 , VIX : VIX , Gold : GC , Bond : US10YT=X , KR10YT=RR , currency : BTC/KRW
-raw_ = fdr.DataReader('BTC/USD', '2015')
+raw_ = fdr.DataReader(ticker, '2015')
 
 # convert date to num for using
-raw_data = raw_.iloc[observation_period:, :]
+raw_data = raw_.iloc[1000:, :]
 raw_data.index = pd.to_datetime(raw_data.index)
 raw_data['Datetonum'] = [mdates.date2num(d) for d in raw_data.index]
 
@@ -40,7 +38,7 @@ quote = [tuple(x) for x in raw_data[['Datetonum', 'Open', 'High', 'Low', 'Close'
 SMA_data_ = pd.DataFrame(index=raw_.index)
 for g in range(len(MA_num)):
     SMA_data_[str(MA_num[g]) + 'MA'] = raw_['Close'].rolling(MA_num[g]).mean()
-SMA_data = SMA_data_.iloc[observation_period:, :]
+SMA_data = SMA_data_.iloc[1000:, :]
 
 # visualize candle
 fig, ax = plt.subplots(figsize=(14,8))
@@ -83,5 +81,5 @@ plt.legend()
 plt.gcf().autofmt_xdate()
 plt.autoscale()
 plt.tight_layout()
-plt.savefig('./charts/' + ticker1 + str(observation_period) + 'SMA.png')
+plt.savefig('./charts/' + ticker1 + 'SMA.png')
 plt.show()
