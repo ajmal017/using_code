@@ -10,12 +10,15 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 # use ticker1 variable for plot label.
 # https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
 
-ticker1 = 'GOOGL'
+ticker1 = 'US1M'  # all uppers
 
 tickers = {
-    'WTI':'CL', 'KOSPI':'KS11', 'KOSDAQ':'KQ11','VIX':'VIX','Gold':'GC', 'Silver':'SI',
-    'US10Y':'US10YT=X', 'KR10Y':'KR10YT=RR', 'Bitcoin':'BTC/USD', 'DOW':'DJI', 'GAS':'NG',
-    'NASDAQ':'IXIC', 'S&P500':'US500', 'NIKKEI':'JP225', 'DAX':'DE30'}
+    'WTI':'CL', 'KOSPI':'KS11', 'KOSDAQ':'KQ11','VIX':'VIX','GOLD':'GC', 'SILVER':'SI',
+    'US10Y':'US10YT=X', 'KR10Y':'KR10YT=RR', 'BITCOIN':'BTC/USD', 'DOW':'DJI', 'GAS':'NG',
+    'NASDAQ':'IXIC', 'S&P500':'US500', 'NIKKEI':'JP225', 'DAX':'DE30', 'KR1Y':'KR1YT=RR',
+    'KR3Y':'KR3YT=RR', 'US1M':'US1MT=X', 'US3M':'US3MT=X', 'US1Y':'US1YT=X', 'US3Y':'US3YT=X',
+    'US30Y':'US30YT=X', 'KR30Y':'KR30YT=RR', 'US6M':'US6MT=X'
+}
 MA_num = [5, 120, 200, 967]
 
 if ticker1 in tickers:
@@ -41,26 +44,26 @@ for g in range(len(MA_num)):
 SMA_data = SMA_data_.iloc[1000:, :]
 
 # visualize candle
-fig, ax = plt.subplots(figsize=(14,8))
+fig, ax = plt.subplots(figsize=(12,8))
 candlestick_ohlc(ax, quote, width=0.05, colorup='g', colordown='r')
 
 # visualize SMA data. using specific color by MAs
+
+# 120MA visualize and annotate
 MA_120 = ax.plot(SMA_data.iloc[:, 1], linewidth=0.5, color='b', label='120MA')
-MA_200 = ax.plot(SMA_data.iloc[:, 2], linewidth=0.5, color='r', label='200MA')
-MA_200w = ax.plot(SMA_data.iloc[:, 3], linewidth=0.5, color='pink', label='200W-MA')
-
-
-# annotate 120MA
 ax.annotate(int(SMA_data.iloc[-1, 1]), color='b', fontsize=7,
                      xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
 
-# annotate 200MA
+# 200MA visualize and annotate
+MA_200 = ax.plot(SMA_data.iloc[:, 2], linewidth=0.5, color='r', label='200MA')
 ax.annotate(int(SMA_data.iloc[-1, 2]), color='r', fontsize=7,
                      xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]))
 
-# annotate 200week MA
-ax.annotate(int(SMA_data.iloc[-1, 3]), color='pink', fontsize=7,
-                     xy=(SMA_data.index[-1], SMA_data.iloc[-1, 3]))
+
+# 200w-MA visualize and annotate
+# MA_200w = ax.plot(SMA_data.iloc[:, 3], linewidth=0.5, color='pink', label='200W-MA')
+# ax.annotate(int(SMA_data.iloc[-1, 3]), color='pink', fontsize=7,
+#                      xy=(SMA_data.index[-1], SMA_data.iloc[-1, 3]))
 
 
 # annotate last_price
@@ -68,7 +71,6 @@ ax.annotate(int(raw_data['Close'][-1]), color='k', fontsize=9,
                      xy=(raw_data.index[-1], raw_data['Close'][-1]), label='Current')
 
 # axes setting
-ax.set_ylabel(ticker1, color='g')
 ax.yaxis.tick_right()
 ax.xaxis_date()
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
@@ -77,9 +79,10 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
 ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
 
 # Beautify the x-labels
+plt.title(ticker1)
 plt.legend()
 plt.gcf().autofmt_xdate()
-plt.autoscale()
-plt.tight_layout()
+if ticker1[:2] not in ['KR', 'US']:
+    plt.tight_layout()
 plt.savefig('./charts/' + ticker1 + 'SMA.png')
 plt.show()
