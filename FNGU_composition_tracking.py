@@ -1,6 +1,6 @@
 import pandas as pd
 
-raw_df = pd.read_excel('etf_components.xlsx', sheet_name='FNGU')
+raw_df = pd.read_excel('0. etf_components.xlsx', sheet_name='FNGU')
 Symbol = raw_df['Symbol']
 Symbol.dropna(inplace=True)
 print(Symbol)

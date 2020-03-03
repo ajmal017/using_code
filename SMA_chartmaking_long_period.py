@@ -9,7 +9,7 @@ import warnings
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 # use ticker1 variable for plot label.
-ticker1 = 'DOW'
+ticker1 = 'Bitcoin'
 observation_period = 1000
 
 # read csv data
@@ -25,7 +25,7 @@ raw_.index = pd.to_datetime(raw_.index)
 # or I can use Financial DataReaders data
 # https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
 # WTI : CL , KOSPI: KS11 , KOSDAQ : KQ11 , VIX : VIX , Gold : GC , Bond : US10YT=X , KR10YT=RR , currency : BTC/KRW
-# raw_ = fdr.DataReader('KS11', '2010')
+raw_ = fdr.DataReader('BTC/USD', '2015')
 
 # convert date to num for using
 raw_data = raw_.iloc[observation_period:, :]

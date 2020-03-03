@@ -5,17 +5,20 @@ from mpl_finance import *
 import FinanceDataReader as fdr
 from pandas.core.common import SettingWithCopyWarning
 import warnings
+import datetime as dt
 
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 # use ticker1 variable for plot label.
 ticker1 = 'NASDAQ'
 observation_period = -100
+today1 = dt.datetime.today()
+today_ = today1.strftime("%y%m%d")
 
 # read csv data
-path_for_SMA = './ib_db/' + 'COMP_20200301_10Y_1day' + '.csv'
-path_for_candle = './ib_db/' + 'COMP_20200301_2W_30mins' + '.csv'
-MA_num = [5, 120, 200, 967]
+path_for_SMA = './ib_db/' + 'COMP_20200304_5Y_1day' + '.csv'
+path_for_candle = './ib_db/' + 'COMP_20200304_2W_5mins' + '.csv'
+MA_num = [5, 10, 120, 200, 967]
 
 # want to draw SMA lines,  use longer period of data.
 # set raw_  at first,  and slicing data to raw_data
@@ -52,6 +55,8 @@ candlestick2_ohlc(ax, merge1['Open'], merge1['High'], merge1['Low'], merge1['Clo
 
 
 # visualize SMA data. using specific color by MAs
+# MA_5 = ax.plot(merge1['5MA'], linewidth=0.5, color='saddlebrown', label='5MA')
+# MA_10 = ax.plot(merge1['10MA'], linewidth=0.5, color='teal', label='10MA')
 MA_120 = ax.plot(merge1['120MA'], linewidth=0.5, color='b', label='120MA')
 MA_200 = ax.plot(merge1['200MA'], linewidth=0.5, color='r', label='200MA')
 # MA_200w = ax.plot(merge1['967MA'], linewidth=0.5, color='pink', label='200W-MA')
@@ -98,6 +103,7 @@ ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
 
 # Beautify the x-labels
 plt.legend()
+plt.title("5mins candle with SMA")
 plt.tight_layout()
-plt.savefig('./charts/' + ticker1 + '30mins_SMA.png')
+plt.savefig('./charts/' + ticker1 + str(today_) + 'daily_SMA.png')
 plt.show()
