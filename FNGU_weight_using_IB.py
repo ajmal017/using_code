@@ -1,23 +1,15 @@
 import pandas as pd
+import IB_Req_Function
 
 raw_df = pd.read_excel('0. etf_components.xlsx', sheet_name='FNGU')
-Symbol = raw_df['Symbol']
-Symbol.dropna(inplace=True)
-print(Symbol)
+tickers = list(raw_df['Symbol'].dropna().values)
 
-load_name = './db/' + Symbol + '.csv'
-
-# load data from database (of each symbols) and concat close data
-
-df_from_each_file = (pd.read_csv(f, index_col=0, usecols=['Date', 'Close']) for f in load_name)
+df_from_each_file = (IB_Req_Function.request(f, duration1='3 M', usecols=['Close']) for f in tickers)
 df = pd.concat(df_from_each_file, ignore_index=False, join='inner', axis=1)
-df.columns = Symbol
-df.index = pd.to_datetime(df.index)
-
-print(df, type(df.index))
+df.columns = tickers
 
 # quarterly rebalancing weight , 10% each
-
+#
 df_norm = df.loc['2020-01-02':].apply(lambda x: x / x[0] * 10)
 weight_now = df_norm.apply(lambda x: x / df_norm.sum(axis=1) * 100)
 # weight_now.to_csv('FNGU_weight_now.csv')

@@ -1,6 +1,7 @@
 from ib_insync import *
 import pandas as pd
 import datetime as dt
+import time
 # util.startLoop()  # uncomment this line when in a notebook
 
 # DOW  s: INDU, e: CME / NASDAQ s: COMP e: NASDAQ / SPX s: SPX e: CBOE / DAX s: DAX e: DTB c: EUR
@@ -15,11 +16,11 @@ tickers = ['NASDAQ', 'DOW', 'SPX500', 'DAX', 'US_STOCK']
 dicts = {'NASDAQ': NASDAQ, 'DOW': DOW, 'SPX': SPX500, 'DAX': DAX}
 
 
-def request(ticker2, enddatetime1=None, duration1=None, barsize1=None):
+def request(ticker2, enddatetime1=None, duration1=None, barsize1=None, usecols=None, index_col='Date'):
     if enddatetime1 == None:
         enddatetime1 = (dt.datetime.today() + dt.timedelta(days=1)).strftime('%Y%m%d 00:00:00')
     if duration1 == None:
-        duration1 = '3 Y'
+        duration1 = '1 Y'
     if barsize1 == None:
         barsize1 = '1 day'
 
@@ -45,6 +46,13 @@ def request(ticker2, enddatetime1=None, duration1=None, barsize1=None):
 
     # convert to pandas dataframe:
     df = util.df(bars)
+    ib.disconnect()
     df.columns = df.columns.str.capitalize()
-    df.set_index('Date', inplace=True)
-    return df
+    if index_col == 'Date':
+        df.set_index(index_col, inplace=True)
+        df.index = pd.to_datetime(df.index)
+    if usecols != None:
+        return df[usecols]
+    else:
+        return df
+
