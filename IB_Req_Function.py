@@ -16,7 +16,8 @@ tickers = ['NASDAQ', 'DOW', 'SPX500', 'DAX', 'US_STOCK']
 dicts = {'NASDAQ': NASDAQ, 'DOW': DOW, 'SPX': SPX500, 'DAX': DAX}
 
 
-def request(ticker2, enddatetime1=None, duration1=None, barsize1=None, usecols=None, index_col='Date'):
+def request(ticker2, enddatetime1=None, duration1=None, barsize1=None, usecols=None,
+            primaryexchange="", index_col='Date'):
     if enddatetime1 == None:
         enddatetime1 = (dt.datetime.today() + dt.timedelta(days=1)).strftime('%Y%m%d 00:00:00')
     if duration1 == None:
@@ -38,7 +39,7 @@ def request(ticker2, enddatetime1=None, duration1=None, barsize1=None, usecols=N
     contract.secType = ticker1['sectype']
     contract.exchange = ticker1['exchange1']
     contract.currency = ticker1['currency']
-    contract.primaryExchange = ""
+    contract.primaryExchange = primaryexchange
 
     bars = ib.reqHistoricalData(
         contract, endDateTime= enddatetime1, durationStr=duration1,

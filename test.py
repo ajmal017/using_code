@@ -8,21 +8,23 @@ import warnings
 import datetime as dt
 import IB_Req_Function
 
-warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+print(IB_Req_Function.request('GOOGL'))
 
-# use ticker1 variable for plot label.
-ticker1 = 'NASDAQ'
-observation_period = -100
-today1 = dt.datetime.today()
-today_ = today1.strftime("%y%m%d")
-
-MA_num = [5, 10, 120, 200, 967]
-
-SMA_data = IB_Req_Function.request('NASDAQ')
-for g in range(len(MA_num)):
-    SMA_data[str(MA_num[g]) + 'MA'] = SMA_data['Close'].rolling(MA_num[g]).mean()
-
-print(SMA_data)
+# warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+#
+# # use ticker1 variable for plot label.
+# ticker1 = 'NASDAQ'
+# observation_period = -100
+# today1 = dt.datetime.today()
+# today_ = today1.strftime("%y%m%d")
+#
+# MA_num = [5, 10, 120, 200, 967]
+#
+# SMA_data = IB_Req_Function.request('NASDAQ')
+# for g in range(len(MA_num)):
+#     SMA_data[str(MA_num[g]) + 'MA'] = SMA_data['Close'].rolling(MA_num[g]).mean()
+#
+# print(SMA_data)
 # # want to draw SMA lines,  use longer period of data.
 # # set raw_  at first,  and slicing data to raw_data
 #
