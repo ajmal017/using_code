@@ -4,7 +4,7 @@ import IB_Req_Function
 raw_df = pd.read_excel('0. etf_components.xlsx', sheet_name='FNGU')
 tickers = list(raw_df['Symbol'].dropna().values)
 
-df_from_each_file = (IB_Req_Function.request(f, duration1='3 M', usecols=['Close'], enddatetime1="20200302 00:00:00")
+df_from_each_file = (IB_Req_Function.request(f, duration='3 M', usecols=['Close'], enddatetime="20200302 00:00:00")
                      for f in tickers)
 df = pd.concat(df_from_each_file, ignore_index=False, join='inner', axis=1)
 df.columns = tickers

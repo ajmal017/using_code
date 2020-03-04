@@ -16,13 +16,13 @@ tickers = ['NASDAQ', 'DOW', 'SPX500', 'DAX', 'US_STOCK']
 dicts = {'NASDAQ': NASDAQ, 'DOW': DOW, 'SPX': SPX500, 'DAX': DAX}
 
 
-def request(ticker2, enddatetime1=None, duration1=None, barsize1=None, usecols=None,
+def request(ticker2, enddatetime=None, duration=None, barsize=None, usecols=None,
             primaryexchange="", index_col='Date'):
-    if enddatetime1 == None:
-        enddatetime1 = (dt.datetime.today() + dt.timedelta(days=1)).strftime('%Y%m%d 00:00:00')
-    if duration1 == None:
+    if enddatetime == None:
+        enddatetime = (dt.datetime.today() + dt.timedelta(days=1)).strftime('%Y%m%d 00:00:00')
+    if duration == None:
         duration1 = '1 Y'
-    if barsize1 == None:
+    if barsize == None:
         barsize1 = '1 day'
 
     US_STOCK = {'symbol1': ticker2, 'sectype': 'STK', 'exchange1': 'SMART', 'currency': 'USD'}
@@ -42,8 +42,8 @@ def request(ticker2, enddatetime1=None, duration1=None, barsize1=None, usecols=N
     contract.primaryExchange = primaryexchange
 
     bars = ib.reqHistoricalData(
-        contract, endDateTime= enddatetime1, durationStr=duration1,
-        barSizeSetting=barsize1, whatToShow='TRADES', useRTH=1)
+        contract, endDateTime= enddatetime, durationStr=duration,
+        barSizeSetting=barsize, whatToShow='TRADES', useRTH=1)
 
     # convert to pandas dataframe:
     df = util.df(bars)

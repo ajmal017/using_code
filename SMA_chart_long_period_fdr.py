@@ -10,7 +10,7 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 # use ticker1 variable for plot label.
 # https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
 
-ticker1 = 'US1M'  # all uppers
+ticker1 = 'US30Y'  # all uppers
 
 tickers = {
     'WTI':'CL', 'KOSPI':'KS11', 'KOSDAQ':'KQ11','VIX':'VIX','GOLD':'GC', 'SILVER':'SI',
@@ -29,7 +29,7 @@ else:
 raw_ = fdr.DataReader(ticker, '2015')
 
 # convert date to num for using
-raw_data = raw_.iloc[1000:, :]
+raw_data = raw_.iloc[-300:, :]
 raw_data.index = pd.to_datetime(raw_data.index)
 raw_data['Datetonum'] = [mdates.date2num(d) for d in raw_data.index]
 
@@ -41,23 +41,28 @@ quote = [tuple(x) for x in raw_data[['Datetonum', 'Open', 'High', 'Low', 'Close'
 SMA_data_ = pd.DataFrame(index=raw_.index)
 for g in range(len(MA_num)):
     SMA_data_[str(MA_num[g]) + 'MA'] = raw_['Close'].rolling(MA_num[g]).mean()
-SMA_data = SMA_data_.iloc[1000:, :]
+SMA_data = SMA_data_.iloc[-300:, :]
 
 # visualize candle
 fig, ax = plt.subplots(figsize=(12,8))
-candlestick_ohlc(ax, quote, width=0.05, colorup='g', colordown='r')
+candlestick_ohlc(ax, quote, width=0.2, colorup='g', colordown='r')
 
 # visualize SMA data. using specific color by MAs
 
 # 120MA visualize and annotate
 MA_120 = ax.plot(SMA_data.iloc[:, 1], linewidth=0.5, color='b', label='120MA')
-ax.annotate(int(SMA_data.iloc[-1, 1]), color='b', fontsize=7,
-                     xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
+if ticker1[:2] not in ['KR', 'US']:
+    ax.annotate(int(SMA_data.iloc[-1, 1]), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
+else :
+    ax.annotate(round(SMA_data.iloc[-1, 1], 2), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
+
 
 # 200MA visualize and annotate
 MA_200 = ax.plot(SMA_data.iloc[:, 2], linewidth=0.5, color='r', label='200MA')
-ax.annotate(int(SMA_data.iloc[-1, 2]), color='r', fontsize=7,
-                     xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]))
+if ticker1[:2] not in ['KR', 'US']:
+    ax.annotate(int(SMA_data.iloc[-1, 2]), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
+else :
+    ax.annotate(round(SMA_data.iloc[-1, 2], 2), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
 
 
 # 200w-MA visualize and annotate
@@ -67,8 +72,12 @@ ax.annotate(int(SMA_data.iloc[-1, 2]), color='r', fontsize=7,
 
 
 # annotate last_price
-ax.annotate(int(raw_data['Close'][-1]), color='k', fontsize=9,
-                     xy=(raw_data.index[-1], raw_data['Close'][-1]), label='Current')
+if ticker1[:2] not in ['KR', 'US']:
+    ax.annotate(int(raw_data['Close'][-1]), color='k', fontsize=9,
+                xy=(raw_data.index[-1], raw_data['Close'][-1]), label='Current')
+else:
+    ax.annotate(round(raw_data['Close'][-1], 2), color='k', fontsize=9,
+                xy=(raw_data.index[-1], raw_data['Close'][-1]), label='Current')
 
 # axes setting
 ax.yaxis.tick_right()

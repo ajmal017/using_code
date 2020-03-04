@@ -13,13 +13,13 @@ today_ = today1.strftime("%y%m%d")
 import IB_Req_Function
 
 # Variables. ticker1 can be USSTOCKs, major_indices
-ticker1 = 'S&P500'
-barsize = "5 mins"
+ticker1 = 'NASDAQ'
+barsize1 = "5 mins"
 MA_num = [5, 10, 120, 200, 967]
 
 
 # make SMA_data
-SMA_data = IB_Req_Function.request(ticker1, duration1='5 Y', usecols=['Close'])
+SMA_data = IB_Req_Function.request(ticker1, duration='5 Y', barsize='1 day', usecols=['Close'])
 for g in range(len(MA_num)):
     SMA_data[str(MA_num[g]) + 'MA'] = SMA_data['Close'].rolling(MA_num[g]).mean()
 
@@ -35,7 +35,7 @@ SMA_data = SMA_data.iloc[-20:]
 
 # extract days from hourly or minutely data
 raw_data = IB_Req_Function.request(ticker1, usecols=['Date', 'Open', 'High', 'Low', 'Close'],
-                                   index_col=None, duration1='2 W', barsize1=barsize)
+                                   index_col=None, duration='2 W', barsize=barsize1)
 raw_data['Date_day'] = raw_data['Date'].dt.strftime("%Y-%m-%d")
 raw_data.set_index('Date_day', inplace=True)
 
@@ -71,10 +71,10 @@ ax.xaxis.set_major_locator(ticker.FixedLocator(day_list))
 ax.xaxis.set_major_formatter(ticker.FixedFormatter(name_list))
 
 # annotate 120MA
-ax.annotate(int(merge1.iloc[-1, -3]), color='b', fontsize=7,
+ax.annotate(int(merge1.iloc[-1, -3]), color='b', fontsize=10,
                      xy=(merge1.index[-1]+1, merge1.iloc[-1, -3]+2))
 # annotate 200MA
-ax.annotate(int(merge1.iloc[-1, -2]), color='r', fontsize=7,
+ax.annotate(int(merge1.iloc[-1, -2]), color='r', fontsize=10,
                      xy=(merge1.index[-1]+1, merge1.iloc[-1, -2]))
 
 # annotate 200week MA
@@ -83,7 +83,7 @@ ax.annotate(int(merge1.iloc[-1, -2]), color='r', fontsize=7,
 
 
 # annotate last_price
-ax.annotate(merge1.iloc[-1, 5], color='k', fontsize=9,
+ax.annotate(merge1.iloc[-1, 5], color='k', fontsize=11,
                      xy=(merge1.index[-1]+1, merge1.iloc[-1, 5]), label='Current')
 
 # axes setting
@@ -94,7 +94,7 @@ ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
 
 # Beautify the x-labels
 plt.legend()
-plt.title(ticker1 + ' ' + barsize + " candle with SMA")
+plt.title(ticker1 + ' ' + barsize1 + " candle with SMA")
 plt.tight_layout()
 plt.savefig('./charts/' + ticker1 + str(today_) + 'daily_SMA.png')
 plt.show()
