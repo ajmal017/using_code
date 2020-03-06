@@ -14,7 +14,7 @@ import IB_Req_Function
 
 # Variables. ticker1 can be USSTOCKs, major_indices
 ticker1 = 'NASDAQ'
-barsize1 = "5 mins"
+barsize1 = "30 mins"
 MA_num = [5, 10, 120, 200, 967]
 
 
@@ -47,15 +47,44 @@ print(merge1)
 # visualize candle
 fig, ax = plt.subplots(figsize=(14,9))
 candlestick2_ohlc(ax, merge1['Open'], merge1['High'], merge1['Low'], merge1['Close'],
-                  width=0.2, colorup='g', colordown='r')
+                  width=1, colorup='g', colordown='r')
+ax.tick_params(axis='x', )
+
+# # visualize SMA data. using specific color by MAs. and annotate
+
+# 5MA
+MA_5 = ax.plot(merge1['5MA'], linewidth=0.4, color='saddlebrown', label='5MA')
+ax.annotate(int(merge1.iloc[-1, -5]), color='saddlebrown', fontsize=10,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -5]+2))
 
 
-# # visualize SMA data. using specific color by MAs
-# MA_5 = ax.plot(merge1['5MA'], linewidth=0.5, color='saddlebrown', label='5MA')
-# MA_10 = ax.plot(merge1['10MA'], linewidth=0.5, color='teal', label='10MA')
-MA_120 = ax.plot(merge1['120MA'], linewidth=0.5, color='b', label='120MA')
+# 10MA
+MA_10 = ax.plot(merge1['10MA'], linewidth=0.4, color='teal', label='10MA')
+ax.annotate(int(merge1.iloc[-1, -4]), color='teal', fontsize=10,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -4]+2))
+
+
+# 120MA
+MA_120 = ax.plot(merge1['120MA'], linewidth=0.4, color='b', label='120MA')
+ax.annotate(int(merge1.iloc[-1, -3]), color='b', fontsize=10,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -3]+2))
+
+# 200MA
 MA_200 = ax.plot(merge1['200MA'], linewidth=0.5, color='r', label='200MA')
-# # MA_200w = ax.plot(merge1['967MA'], linewidth=0.5, color='pink', label='200W-MA')
+ax.annotate(int(merge1.iloc[-1, -2]), color='r', fontsize=10,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -2]))
+
+# 200w MA
+# MA_200w = ax.plot(merge1['967MA'], linewidth=0.5, color='pink', label='200W-MA')
+# ax.annotate(int(merge1.iloc[-1, -1]), color='r', fontsize=10,
+#                      xy=(merge1.index[-1]+1, merge1.iloc[-1, -1]))
+
+
+# annotate last_price
+ax.annotate(merge1.iloc[-1, 5], color='k', fontsize=11,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, 5]), label='Current')
+
+
 
 
 # x_axis - date setting for candlestick2_ohlc
@@ -67,30 +96,17 @@ unique_day = np.unique(month_day_index, return_index=True)
 day_list = list(unique_day[1])
 name_list = list(unique_day[0])
 
-ax.xaxis.set_major_locator(ticker.FixedLocator(day_list))
-ax.xaxis.set_major_formatter(ticker.FixedFormatter(name_list))
-
-# annotate 120MA
-ax.annotate(int(merge1.iloc[-1, -3]), color='b', fontsize=10,
-                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -3]+2))
-# annotate 200MA
-ax.annotate(int(merge1.iloc[-1, -2]), color='r', fontsize=10,
-                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -2]))
-
-# annotate 200week MA
-# ax.annotate(int(SMA_data.iloc[-1, 3]), color='pink', fontsize=7,
-#                      xy=(SMA_data.index[-1]+1, SMA_data.iloc[-1, 3]))
-
-
-# annotate last_price
-ax.annotate(merge1.iloc[-1, 5], color='k', fontsize=11,
-                     xy=(merge1.index[-1]+1, merge1.iloc[-1, 5]), label='Current')
-
 # axes setting
 ax.yaxis.tick_right()
+ax.xaxis.set_major_locator(ticker.FixedLocator(day_list))
+ax.xaxis.set_major_formatter(ticker.FixedFormatter(name_list))
+ax.xaxis.set_minor_locator(ticker.MultipleLocator(13/3))
+
 
 # grid
-ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
+ax.grid(which='major', axis='both', color='dimgrey', dashes=(1, 1), linewidth=0.8)
+ax.grid(which='minor', axis='both', color='grey', dashes=(2, 4), linewidth=0.3)
+
 
 # Beautify the x-labels
 plt.legend()

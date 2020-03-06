@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
 from mpl_finance import *
 import FinanceDataReader as fdr
 from pandas.core.common import SettingWithCopyWarning
@@ -10,7 +11,7 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 # use ticker1 variable for plot label.
 # https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
 
-ticker1 = 'US30Y'  # all uppers
+ticker1 = 'BITCOIN'  # all uppers
 
 tickers = {
     'WTI':'CL', 'KOSPI':'KS11', 'KOSDAQ':'KQ11','VIX':'VIX','GOLD':'GC', 'SILVER':'SI',
@@ -29,7 +30,7 @@ else:
 raw_ = fdr.DataReader(ticker, '2015')
 
 # convert date to num for using
-raw_data = raw_.iloc[-300:, :]
+raw_data = raw_.iloc[-100:, :]
 raw_data.index = pd.to_datetime(raw_data.index)
 raw_data['Datetonum'] = [mdates.date2num(d) for d in raw_data.index]
 
@@ -41,7 +42,7 @@ quote = [tuple(x) for x in raw_data[['Datetonum', 'Open', 'High', 'Low', 'Close'
 SMA_data_ = pd.DataFrame(index=raw_.index)
 for g in range(len(MA_num)):
     SMA_data_[str(MA_num[g]) + 'MA'] = raw_['Close'].rolling(MA_num[g]).mean()
-SMA_data = SMA_data_.iloc[-300:, :]
+SMA_data = SMA_data_.iloc[-100:, :]
 
 # visualize candle
 fig, ax = plt.subplots(figsize=(12,8))
@@ -60,9 +61,9 @@ else :
 # 200MA visualize and annotate
 MA_200 = ax.plot(SMA_data.iloc[:, 2], linewidth=0.5, color='r', label='200MA')
 if ticker1[:2] not in ['KR', 'US']:
-    ax.annotate(int(SMA_data.iloc[-1, 2]), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
+    ax.annotate(int(SMA_data.iloc[-1, 2]), color='r', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
 else :
-    ax.annotate(round(SMA_data.iloc[-1, 2], 2), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
+    ax.annotate(round(SMA_data.iloc[-1, 2], 2), color='r', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
 
 
 # 200w-MA visualize and annotate
@@ -83,9 +84,10 @@ else:
 ax.yaxis.tick_right()
 ax.xaxis_date()
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
+ax.xaxis.set_minor_locator(mticker.MultipleLocator(20))
 
 # grid
-ax.grid(which='major', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
+ax.grid(which='both', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
 
 # Beautify the x-labels
 plt.title(ticker1)

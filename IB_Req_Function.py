@@ -48,6 +48,7 @@ def request(ticker2, enddatetime=None, duration=None, barsize=None, usecols=None
     # convert to pandas dataframe:
     df = util.df(bars)
     ib.disconnect()
+    time.sleep(0.3)
     df.columns = df.columns.str.capitalize()
     if index_col == 'Date':
         df.set_index(index_col, inplace=True)
