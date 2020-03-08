@@ -17,7 +17,7 @@ dicts = {'NASDAQ': NASDAQ, 'DOW': DOW, 'SPX': SPX500, 'DAX': DAX}
 
 
 def request(ticker2, enddatetime=None, duration=None, barsize=None, usecols=None,
-            primaryexchange="", index_col='Date'):
+            primaryexchange="", index_col=None):
     if enddatetime == None:
         enddatetime = (dt.datetime.today() + dt.timedelta(days=1)).strftime('%Y%m%d 00:00:00')
     if duration == None:
