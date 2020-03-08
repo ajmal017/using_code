@@ -19,17 +19,13 @@ MA_num = [5, 10, 120, 200, 967]
 
 
 # make SMA_data
-SMA_data = IB_Req_Function.request(ticker1, duration='5 Y', barsize='1 day', usecols=['Close'])
+SMA_data = IB_Req_Function.request(ticker1, duration='5 Y', barsize='1 day', usecols=['Date', 'Close'])
 for g in range(len(MA_num)):
     SMA_data[str(MA_num[g]) + 'MA'] = SMA_data['Close'].rolling(MA_num[g]).mean()
 
-SMA_data['Date_day'] = ''
-for i in range(1, 20):
-    SMA_data['Date_day'][-i-1] = SMA_data.index[-i]
-# SMA_data['Date_day'][-1] = SMA_data['Date_day'][-2] + dt.timedelta(days=1)
-SMA_data['Date_day'] = pd.to_datetime(SMA_data['Date_day']).dt.strftime("%Y-%m-%d")
+SMA_data['Date_day'] = pd.to_datetime(SMA_data['Date'].shift(-1)).dt.strftime("%Y-%m-%d")
 SMA_data.set_index('Date_day', inplace=True)
-SMA_data.drop(columns='Close', inplace=True)
+SMA_data.drop(columns=['Date', 'Close'], inplace=True)
 SMA_data = SMA_data.iloc[-20:]
 
 
