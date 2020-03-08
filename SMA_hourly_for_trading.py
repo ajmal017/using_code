@@ -86,17 +86,29 @@ ax.annotate(merge1.iloc[-1, 5], color='k', fontsize=11,
 # x_axis - date setting for candlestick2_ohlc
 # https://wikidocs.net/4766
 
+# set major ticks
 index_to_datetime = pd.Series(pd.to_datetime(merge1['Date_day']))
 month_day_index = index_to_datetime.dt.strftime("%m-%d")
 unique_day = np.unique(month_day_index, return_index=True)
 day_list = list(unique_day[1])
 name_list = list(unique_day[0])
 
+# set minor ticks
+minorticks_index= []
+minorticks_values = []
+for i, values in enumerate(minutes_index):
+    if values in minutes_to_extract:
+        minorticks_index.append(i)
+        minorticks_values.append(values)
+
+
 # axes setting
 ax.yaxis.tick_right()
 ax.xaxis.set_major_locator(ticker.FixedLocator(day_list))
 ax.xaxis.set_major_formatter(ticker.FixedFormatter(name_list))
-ax.xaxis.set_minor_locator(ticker.MultipleLocator(13/3))
+ax.xaxis.set_minor_locator(mticker.FixedLocator(minorticks_index))
+ax.xaxis.set_minor_formatter(mticker.FixedFormatter(minorticks_values))
+ax.tick_params(which='minor', axis='x', labelrotation=90, pad=10)
 
 
 # grid
