@@ -1,48 +1,138 @@
-from ib_insync import *
 import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mticker
+from mpl_custom import *
+import FinanceDataReader as fdr
 from pandas.core.common import SettingWithCopyWarning
 import warnings
+import datetime as dt
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
+today1 = dt.datetime.today()
+today_ = today1.strftime("%y%m%d")
 
-ib = IB()
-ib.connect('127.0.0.1', 7496, 0)
+import IB_Req_Function
 
-account1 = ib.accountSummary()
-account2 = ib.portfolio()
-account3 = ib.executions()
-df1 = util.df(account1)
-df2 = util.df(account2)
-df3 = util.df(account3)
-liquidity = int(pd.to_numeric(df1[df1['tag'] == 'NetLiquidationByCurrency'].iloc[0,2]))
-cash = int(pd.to_numeric(df1[df1['tag'] == 'CashBalance'].iloc[0, 2]))
+# Variables. ticker1 can be USSTOCKs, major_indices
+ticker1 = 'NASDAQ'
+barsize1 = "30 mins"
+MA_num = [5, 10, 120, 200, 967]
 
 
-df2['contract'] = df2['contract'].astype(str)
-symbol_start = df2['contract'].str.find('symbol=') + 8
-symbol_end = df2['contract'].str.find("', right")
+# make SMA_data
+SMA_data = IB_Req_Function.request(ticker1, duration='5 Y', barsize='1 day', usecols=['Date', 'Close'])
+SMA_data['Daily_change'] = round(SMA_data['Close'].pct_change() * 100, 1).astype(str) + "%"
+for g in range(len(MA_num)):
+    SMA_data[str(MA_num[g]) + 'MA'] = SMA_data['Close'].rolling(MA_num[g]).mean()
 
-df2['symbol'] = ''
-for i in range(len(df2)):
-    df2['symbol'][i] = df2['contract'][i][symbol_start.iloc[i]:symbol_end.iloc[i]]
-
-df_= df2[['position', 'averageCost', 'marketPrice', 'marketValue', 'unrealizedPNL', 'realizedPNL']]
-df_['Size'] = df_['marketValue'] / liquidity * 100
-df_['Unreal. P&L'] = df_['unrealizedPNL'] / liquidity * 100
-df_['Realized P&L'] = df_['realizedPNL'] / liquidity * 100
-df_['Daily Move'] = ''
-df_.insert(0, 'Symbol', df2['symbol'])
-
-df = df_[['Symbol', 'Size', 'averageCost', 'marketPrice', 'Daily Move', 'Unreal. P&L', 'Realized P&L']]
-df.columns = ['Symbol', 'Size', 'Avg. Price', 'Last Price', 'Daily Move', 'Unreal. P&L', 'Realized P&L']
-df = round(df, 1)
-
-df3 = df3[['side', 'shares', 'price']]
-df3['Size'] = df3['shares'] * df3['price'] / liquidity * 100
-
-print(liquidity, df, df3)
-df.to_csv('daily.csv')
+SMA_data['Date_day'] = pd.to_datetime(SMA_data['Date'].shift(-1)).dt.strftime("%Y-%m-%d")
+SMA_data.set_index('Date_day', inplace=True)
+SMA_data.drop(columns=['Date', 'Close'], inplace=True)
+SMA_data = SMA_data.iloc[-20:]
 
 
-# df2['symbol'] = df2['contract'].str.find('symbol=')
+# extract days from hourly or minutely data
+raw_data = IB_Req_Function.request(ticker1, usecols=['Date', 'Open', 'High', 'Low', 'Close'],
+                                   index_col=None, duration='2 W', barsize=barsize1)
+raw_data['Date_day'] = raw_data['Date'].dt.strftime("%Y-%m-%d")
+raw_data['Change'] = round(raw_data['Close'].pct_change() * 100, 1).astype(str) + "%"
+raw_data['Mid'] = (raw_data['High'] + raw_data['Low']) / 2
+raw_data.set_index('Date_day', inplace=True)
+
+# merging
+merge1 = pd.merge(raw_data, SMA_data, left_index=True, right_index=True, how='left')
+merge1.reset_index(drop=True, inplace=True)
+print(merge1)
+
+# visualize candle
+fig, ax = plt.subplots(figsize=(14,9))
+candlestick2_ohlc(ax, merge1['Open'], merge1['High'], merge1['Low'], merge1['Close'])
+
+# # visualize SMA data. using specific color by MAs. and annotate
+
+# # 5MA
+# MA_5 = ax.plot(merge1['5MA'], linewidth=0.4, color='saddlebrown', label='5MA')
+# ax.annotate(int(merge1.iloc[-1, -5]), color='saddlebrown', fontsize=10,
+#                      xy=(merge1.index[-1]+1, merge1.iloc[-1, -5]+2))
 #
-# print(df1, df2, liquidity, cash)
+#
+# # 10MA
+# MA_10 = ax.plot(merge1['10MA'], linewidth=0.4, color='teal', label='10MA')
+# ax.annotate(int(merge1.iloc[-1, -4]), color='teal', fontsize=10,
+#                      xy=(merge1.index[-1]+1, merge1.iloc[-1, -4]+2))
+
+
+# 120MA
+MA_120 = ax.plot(merge1['120MA'], linewidth=0.4, color='b', label='120MA')
+ax.annotate(int(merge1.iloc[-1, -3]), color='b', fontsize=10,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -3]+2))
+
+# 200MA
+MA_200 = ax.plot(merge1['200MA'], linewidth=0.5, color='r', label='200MA')
+ax.annotate(int(merge1.iloc[-1, -2]), color='r', fontsize=10,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, -2]))
+
+# 200w MA
+# MA_200w = ax.plot(merge1['967MA'], linewidth=0.5, color='pink', label='200W-MA')
+# ax.annotate(int(merge1.iloc[-1, -1]), color='r', fontsize=10,
+#                      xy=(merge1.index[-1]+1, merge1.iloc[-1, -1]))
+
+
+# annotate last_price
+ax.annotate(round(merge1.iloc[-1, 4],2), color='k', fontsize=11,
+                     xy=(merge1.index[-1]+1, merge1.iloc[-1, 4]), label='Current')
+
+for i, txt in enumerate(merge1['Change']):
+    if raw_data['Close'].pct_change()[i] > 0.01:
+        ax.annotate(txt, (merge1.index[i]-0.7, merge1['Mid'][i]), fontsize=7, alpha=0.8)
+
+
+
+# x_axis - date setting for candlestick2_ohlc
+# https://wikidocs.net/4766
+
+# date index extract as month-day / hours-minutes
+
+index_to_datetime = pd.to_datetime(merge1['Date'])
+month_day_index = index_to_datetime.dt.strftime("%m-%d")
+minutes_index = index_to_datetime.dt.strftime("%H:%M")
+# set major ticks
+
+unique_day = np.unique(month_day_index, return_index=True)
+day_list = list(unique_day[1])
+name_list = list(unique_day[0])
+daily_change = list(merge1['Daily_change'][list(day_list)])
+
+print(daily_change)
+
+# # set minor ticks
+# minutes_to_extract = ["10:00", "14:00", "15:00", "15:30"]
+# minorticks_index= []
+# minorticks_values = []
+# for i, values in enumerate(minutes_index):
+#     if values in minutes_to_extract:
+#         minorticks_index.append(i)
+#         minorticks_values.append(values)
+#
+#
+# # axes setting
+# ax.yaxis.tick_right()
+# ax.xaxis.set_major_locator(mticker.FixedLocator(day_list))
+# ax.xaxis.set_major_formatter(mticker.FixedFormatter(name_list))
+# ax.xaxis.set_minor_locator(mticker.FixedLocator(minorticks_index))
+# ax.xaxis.set_minor_formatter(mticker.FixedFormatter(minorticks_values))
+# ax.tick_params(which='minor', axis='x', labelrotation=90, pad=14, labelsize=8)
+#
+#
+# # grid
+# ax.grid(which='major', axis='x', color='dimgrey', linewidth=1)
+# ax.grid(which='major', axis='y', color='k', dashes=(1,1), linewidth=0.8)
+# ax.grid(which='minor', axis='both', color='grey', dashes=(2, 4), linewidth=0.5)
+#
+#
+# # legend, title, layout
+# plt.legend()
+# plt.title(ticker1 + ' ' + barsize1 + " candle with SMA")
+# plt.tight_layout()
+# plt.margins(x=0.01)
+# plt.savefig('./charts/' + ticker1 + str(today_) + 'daily_SMA.png')
+# plt.show()

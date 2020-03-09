@@ -11,7 +11,7 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 # use ticker1 variable for plot label.
 # https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
 
-ticker1 = 'BITCOIN'  # all uppers
+ticker1 = 'NASDAQ'  # all uppers
 
 tickers = {
     'WTI':'CL', 'KOSPI':'KS11', 'KOSDAQ':'KQ11','VIX':'VIX','GOLD':'GC', 'SILVER':'SI',
@@ -21,7 +21,7 @@ tickers = {
     'US30Y':'US30YT=X', 'KR30Y':'KR30YT=RR', 'US6M':'US6MT=X'
 }
 MA_num = [5, 120, 200, 967]
-
+observe_days = 300
 if ticker1 in tickers:
     ticker = tickers[ticker1]
 else:
@@ -30,7 +30,7 @@ else:
 raw_ = fdr.DataReader(ticker, '2015')
 
 # convert date to num for using
-raw_data = raw_.iloc[-100:, :]
+raw_data = raw_.iloc[-observe_days:, :]
 raw_data.index = pd.to_datetime(raw_data.index)
 raw_data['Datetonum'] = [mdates.date2num(d) for d in raw_data.index]
 
@@ -42,11 +42,11 @@ quote = [tuple(x) for x in raw_data[['Datetonum', 'Open', 'High', 'Low', 'Close'
 SMA_data_ = pd.DataFrame(index=raw_.index)
 for g in range(len(MA_num)):
     SMA_data_[str(MA_num[g]) + 'MA'] = raw_['Close'].rolling(MA_num[g]).mean()
-SMA_data = SMA_data_.iloc[-100:, :]
+SMA_data = SMA_data_.iloc[-observe_days:, :]
 
 # visualize candle
-fig, ax = plt.subplots(figsize=(12,8))
-candlestick_ohlc(ax, quote, width=0.2, colorup='g', colordown='r')
+fig, ax = plt.subplots(figsize=(14,9))
+candlestick_ohlc(ax, quote, width=0.7, colorup='g', colordown='r')
 
 # visualize SMA data. using specific color by MAs
 
@@ -84,10 +84,11 @@ else:
 ax.yaxis.tick_right()
 ax.xaxis_date()
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d"))
-ax.xaxis.set_minor_locator(mticker.MultipleLocator(20))
+ax.xaxis.set_minor_locator(mticker.AutoLocator())
 
 # grid
-ax.grid(which='both', axis='both', color='gray', dashes=(2, 4), linewidth=0.2)
+ax.grid(which='major', axis='y', color='gray', dashes=(2, 4), linewidth=0.5)
+ax.grid(which='major', axis='x', color='k', dashes=(1, 1), linewidth=0.8)
 
 # Beautify the x-labels
 plt.title(ticker1)
