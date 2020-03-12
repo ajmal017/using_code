@@ -5,9 +5,9 @@ import datetime as dt
 
 # use symbol2 for specific STOCK (and ticker1 == US_STOCK). for indices, use ticker1
 
-ticker2 = 'BABA'
-enddatetime1 = '20200303 00:00:00'
-duration1 = '5 Y'
+ticker2 = 'AAPL'
+enddatetime1 = "20040305 00:00:00"
+duration1 = '30 Y'
 barsize1 = '1 day'
 primaryexchange = ""
 
@@ -18,7 +18,7 @@ SPX500 = {'symbol1':'SPX', 'sectype':'IND', 'exchange1':'CBOE', 'currency':'USD'
 DAX = {'symbol1':'DAX', 'sectype':'IND', 'exchange1':'DTB', 'currency':'EUR'}
 US_STOCK = {'symbol1':ticker2, 'sectype':'STK', 'exchange1':'SMART', 'currency':'USD'}
 dicts = {'NASDAQ': NASDAQ, 'DOW': DOW, 'SPX': SPX500, 'DAX': DAX}
-tickers = [NASDAQ, DOW, SPX500, DAX, US_STOCK]
+tickers = ['NASDAQ', 'DOW', 'SPX500', 'DAX', US_STOCK]
 if ticker2 not in tickers:
     ticker1 = US_STOCK
 else:

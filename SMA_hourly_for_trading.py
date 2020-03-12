@@ -31,7 +31,7 @@ SMA_data = SMA_data.iloc[-20:]
 
 # extract days from hourly or minutely data
 raw_data = IB_Req_Function.request(ticker1, usecols=['Date', 'Open', 'High', 'Low', 'Close'],
-                                   index_col=None, duration='2 W', barsize=barsize1)
+                                   duration='2 W', barsize=barsize1)
 raw_data['Date_day'] = raw_data['Date'].dt.strftime("%Y-%m-%d")
 raw_data['Change'] = round(raw_data['Close'].pct_change() * 100, 1).astype(str) + "%"
 raw_data['Mid'] = (raw_data['High'] + raw_data['Low']) / 2
@@ -43,7 +43,7 @@ merge1.reset_index(drop=True, inplace=True)
 print(merge1)
 
 # visualize candle
-fig, ax = plt.subplots(figsize=(14,9))
+fig, ax = plt.subplots(figsize=(10,7))
 candlestick2_ohlc(ax, merge1['Open'], merge1['High'], merge1['Low'], merge1['Close'])
 
 # # visualize SMA data. using specific color by MAs. and annotate
@@ -81,8 +81,8 @@ ax.annotate(round(merge1.iloc[-1, 4],2), color='k', fontsize=11,
                      xy=(merge1.index[-1]+1, merge1.iloc[-1, 4]), label='Current')
 
 for i, txt in enumerate(merge1['Change']):
-    if raw_data['Close'].pct_change()[i] > 0.01:
-        ax.annotate(txt, (merge1.index[i]-0.7, merge1['Mid'][i]), fontsize=7, alpha=0.8)
+    if raw_data['Close'].pct_change()[i] > 0.01 or raw_data['Close'].pct_change()[i] < -0.01:
+        ax.annotate(txt, (merge1.index[i]-0.9, merge1['Mid'][i]), fontsize=7, fontweight='bold')
 
 
 
@@ -101,13 +101,20 @@ day_list = list(unique_day[1])
 name_list = list(unique_day[0])
 
 # set minor ticks
-minutes_to_extract = ["10:00", "14:00", "15:00", "15:30"]
+minutes_to_extract = ["10:00", "15:30"]
+summertime_extract = ["09:00", "14:30"]
 minorticks_index= []
 minorticks_values = []
 for i, values in enumerate(minutes_index):
-    if values in minutes_to_extract:
-        minorticks_index.append(i)
-        minorticks_values.append(values)
+    if i < 104:
+        if values in minutes_to_extract:
+            minorticks_index.append(i)
+            minorticks_values.append(values)
+
+    else:
+        if values in summertime_extract:
+            minorticks_index.append(i)
+            minorticks_values.append(values)
 
 
 # axes setting
@@ -127,7 +134,7 @@ ax.grid(which='minor', axis='both', color='grey', dashes=(2, 4), linewidth=0.5)
 
 # legend, title, layout
 plt.legend()
-plt.title(ticker1 + ' ' + barsize1 + " candle with SMA")
+plt.title(ticker1 + ' ' + barsize1 + " candle with SMA" + "\n annotate on >1% change since previous Close")
 plt.tight_layout()
 plt.margins(x=0.01)
 plt.savefig('./charts/' + ticker1 + str(today_) + 'daily_SMA.png')

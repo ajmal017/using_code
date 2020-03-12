@@ -1,2 +1,0 @@
-,execId,time,acctNumber,exchange,side,shares,price,permId,clientId,orderId,liquidation,cumQty,avgPrice,orderRef,evRule,evMultiplier,modelCode,lastLiquidity
-0,00010196.5e60bebd.01.01,2020-03-04 20:07:37+00:00,U2821318,ISLAND,BOT,200.0,83.19,632341082,0,0,0,200.0,83.19,,,0.0,,1

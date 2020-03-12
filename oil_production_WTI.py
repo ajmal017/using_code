@@ -1,8 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import FinanceDataReader as fdr
 
-# raw production data: https://www.eia.gov/international/data/world
+import FinanceDataReader as fdr
 
 WTI1 = fdr.DataReader('CL', '1980')
 WTI2 = fdr.DataReader('CL', '2001')

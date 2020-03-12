@@ -11,7 +11,7 @@ warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 # use ticker1 variable for plot label.
 # https://github.com/FinanceData/FinanceDataReader/wiki/Users-Guide
 
-ticker1 = 'NASDAQ'  # all uppers
+ticker1 = 'S&P500'  # all uppers
 
 tickers = {
     'WTI':'CL', 'KOSPI':'KS11', 'KOSDAQ':'KQ11','VIX':'VIX','GOLD':'GC', 'SILVER':'SI',
@@ -45,7 +45,7 @@ for g in range(len(MA_num)):
 SMA_data = SMA_data_.iloc[-observe_days:, :]
 
 # visualize candle
-fig, ax = plt.subplots(figsize=(14,9))
+fig, ax = plt.subplots(figsize=(10,7))
 candlestick_ohlc(ax, quote, width=0.7, colorup='g', colordown='r')
 
 # visualize SMA data. using specific color by MAs
@@ -53,23 +53,23 @@ candlestick_ohlc(ax, quote, width=0.7, colorup='g', colordown='r')
 # 120MA visualize and annotate
 MA_120 = ax.plot(SMA_data.iloc[:, 1], linewidth=0.5, color='b', label='120MA')
 if ticker1[:2] not in ['KR', 'US']:
-    ax.annotate(int(SMA_data.iloc[-1, 1]), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
+    ax.annotate(int(SMA_data.iloc[-1, 1]), color='b', fontsize=9, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
 else :
-    ax.annotate(round(SMA_data.iloc[-1, 1], 2), color='b', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
+    ax.annotate(round(SMA_data.iloc[-1, 1], 2), color='b', fontsize=9, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 1]+2))
 
 
 # 200MA visualize and annotate
 MA_200 = ax.plot(SMA_data.iloc[:, 2], linewidth=0.5, color='r', label='200MA')
 if ticker1[:2] not in ['KR', 'US']:
-    ax.annotate(int(SMA_data.iloc[-1, 2]), color='r', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
+    ax.annotate(int(SMA_data.iloc[-1, 2]), color='r', fontsize=9, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
 else :
-    ax.annotate(round(SMA_data.iloc[-1, 2], 2), color='r', fontsize=7, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
+    ax.annotate(round(SMA_data.iloc[-1, 2], 2), color='r', fontsize=9, xy=(SMA_data.index[-1], SMA_data.iloc[-1, 2]+2))
 
 
 # 200w-MA visualize and annotate
-# MA_200w = ax.plot(SMA_data.iloc[:, 3], linewidth=0.5, color='pink', label='200W-MA')
-# ax.annotate(int(SMA_data.iloc[-1, 3]), color='pink', fontsize=7,
-#                      xy=(SMA_data.index[-1], SMA_data.iloc[-1, 3]))
+MA_200w = ax.plot(SMA_data.iloc[:, 3], linewidth=0.5, color='saddlebrown', label='200W-MA')
+ax.annotate(int(SMA_data.iloc[-1, 3]), color='saddlebrown', fontsize=9,
+                     xy=(SMA_data.index[-1], SMA_data.iloc[-1, 3]))
 
 
 # annotate last_price

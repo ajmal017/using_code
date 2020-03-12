@@ -33,7 +33,7 @@ df_['Daily Move'] = ''
 df_.insert(0, 'Symbol', df2['symbol'])
 
 df = df_[['Symbol', 'Size', 'averageCost', 'marketPrice', 'Daily Move', 'Unreal. P&L', 'Realized P&L']]
-df.columns = ['Symbol', 'Size', 'Avg. Price', 'Last Price', 'Daily Move', 'Unreal. P&L', 'Realized P&L']
+df.columns = ['Net Liquid:\n', 'Size', 'Avg. Price', 'Last Price', 'Daily Move', 'Unreal. P&L', 'Realized P&L']
 df = round(df, 1)
 
 if df3 is not None:
@@ -43,3 +43,5 @@ if df3 is not None:
 print(df, "\n net liquid: ", liquidity, "\n action: ", df3, "\n daily Unreal PNL: ",
       round((df_['unrealizedPNL'] / liquidity * 100).sum(), 1) , "\n daily Realized PNL: ",
       round((df_['realizedPNL'] / liquidity * 100).sum(), 1) , "\n Cash: ", cash)
+
+df.to_csv('daily.csv')
