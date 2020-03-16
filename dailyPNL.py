@@ -27,7 +27,7 @@ for i in range(len(df2)):
 
 df_= df2[['position', 'averageCost', 'marketPrice', 'marketValue', 'unrealizedPNL', 'realizedPNL']]
 df_['Size'] = df_['marketValue'] / liquidity * 100
-df_['Unreal. P&L'] = df_['unrealizedPNL'] / df2['marketValue'] * 100
+df_['Unreal. P&L'] = (df_['marketPrice'] / df_['averageCost'] -1) * 100
 df_['Realized P&L'] = df_['realizedPNL'] / df2['marketValue'] * 100
 df_['Daily Move'] = ''
 df_.insert(0, 'Symbol', df2['symbol'])

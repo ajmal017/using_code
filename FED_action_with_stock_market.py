@@ -145,7 +145,7 @@ for i, text in enumerate(cut_2010['Cut_date']):
     ax4.annotate(text.strftime("%m-%d"), xy=(cut_2010.index[i], -20), rotation=90, fontsize=7)
 
 
-ax1.set_title("S&P500 performance after >50bp cut, max=100days \n (every cut for 2010s)")
+ax1.set_title("S&P500 performance after >=50bp cut, max=100days \n (every cut for 2010s)")
 plt.tight_layout()
 
 plt.show()

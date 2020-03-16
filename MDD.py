@@ -6,25 +6,20 @@ import FinanceDataReader as fdr
 
 NQ = fdr.DataReader('IXIC', '2005')
 SPX = fdr.DataReader('US500', '2005')
-DOW = fdr.DataReader('DJI', '2005')
-WTI1 = fdr.DataReader('CL', '1980')
-WTI2 = fdr.DataReader('CL', '2001')
+KOSPI = fdr.DataReader('KS11', '2005')
+KOSDAQ = fdr.DataReader('KQ11', '2005')
 
-WTI = pd.concat([WTI1, WTI2], axis=0)
-WTI.drop_duplicates(inplace=True)
+ticker = KOSDAQ
 
-NQ.index = pd.to_datetime(NQ.index)
-SPX.index = pd.to_datetime(SPX.index)
-WTI.index = pd.to_datetime(WTI.index)
+ticker.index = pd.to_datetime(ticker.index)
 
-WTI = WTI.loc['1990-01-02':'1993-12-30']
 
-ticker = NQ
+
 
 
 ## https://quant.stackexchange.com/questions/18094/how-can-i-calculate-the-maximum-drawdown-mdd-in-python
 # We are going to use a trailing 252 trading day window
-window = 100
+window = 800
 
 # Calculate the max drawdown in the past window days for each day in the series.
 # Use min_periods=1 if you want to let the first 252 days data have an expanding window
@@ -51,11 +46,11 @@ ax3.plot(Daily_Drawdown)
 ax3.axhline(y=-0.2, color='r', linestyle='-', linewidth=0.5)
 ax3.axhline(y=-0.4, color='firebrick', linestyle='-', linewidth=0.5)
 
-ax1.title.set_text("NASDAQ")
+ax1.title.set_text("KOSDAQ")
 ax2.title.set_text("Log Scale")
 ax3.title.set_text("MDD, line with -20%")
 
 
 plt.tight_layout()
-plt.savefig('NASDAQ.png')
+plt.savefig('KOSDAQ.png')
 plt.show()

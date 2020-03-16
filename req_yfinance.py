@@ -16,8 +16,8 @@ from tqdm import tqdm
 
 yf.pdr_override()
 now = datetime.now()
-ticker1 = "TWTR"
-start_date = "1998-11-28"
+ticker1 = "^DJI"
+start_date = "1980-11-28"
 end_date = "2020-02-14"
 date_now = datetime.strftime(now, "%Y%m%d")
 

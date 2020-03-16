@@ -21,13 +21,13 @@ tickers = {
     'US30Y':'US30YT=X', 'KR30Y':'KR30YT=RR', 'US6M':'US6MT=X'
 }
 MA_num = [5, 120, 200, 967]
-observe_days = 300
+observe_days = 3500
 if ticker1 in tickers:
     ticker = tickers[ticker1]
 else:
     ticker = ticker1
 
-raw_ = fdr.DataReader(ticker, '2015')
+raw_ = fdr.DataReader(ticker, '2000')
 
 # convert date to num for using
 raw_data = raw_.iloc[-observe_days:, :]
