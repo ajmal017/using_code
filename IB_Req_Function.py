@@ -13,7 +13,7 @@ DOW = {'symbol1': 'INDU', 'sectype': 'IND', 'exchange1': 'CME', 'currency': 'USD
 SPX500 = {'symbol1': 'SPX', 'sectype': 'IND', 'exchange1': 'CBOE', 'currency': 'USD'}
 DAX = {'symbol1': 'DAX', 'sectype': 'IND', 'exchange1': 'DTB', 'currency': 'EUR'}
 tickers = ['NASDAQ', 'DOW', 'SPX500', 'DAX', 'US_STOCK']
-dicts = {'NASDAQ': NASDAQ, 'DOW': DOW, 'SPX': SPX500, 'DAX': DAX}
+dicts = {'NASDAQ': NASDAQ, 'DOW': DOW, 'SPX500': SPX500, 'DAX': DAX}
 
 
 def request(ticker2, enddatetime=None, duration=None, barsize=None, usecols=None,

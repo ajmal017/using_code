@@ -5,12 +5,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import datetime
 import numpy as np
-from adjustText import adjust_text
 
 FED_rate = pd.read_csv('./data/FED_target_rate.csv', index_col='Date', squeeze=True)
 FED_rate.index = pd.to_datetime(FED_rate.index)
 _FED2010 = FED_rate['2010-01-01':]
-print(_FED2010)
 action_date = []
 action = []
 rate = []
@@ -22,7 +20,7 @@ raise_rate = []
 weekday = []
 
 for i in range(1, len(FED_rate)):
-    if FED_rate.iloc[i-1] -0.25 > FED_rate.iloc[i]:
+    if FED_rate.iloc[i-1] > FED_rate.iloc[i]:
         action_date.append(FED_rate.index[i])
         cut_date.append(FED_rate.index[i])
         cut_date_pre.append(FED_rate.index[i] - datetime.timedelta(days=1))
@@ -41,7 +39,6 @@ for i in range(1, len(_FED2010)):
         cut_rate.append(_FED2010.iloc[i] - _FED2010.iloc[i-1])
         weekday.append(_FED2010.index[i].dayofweek)
 
-print(cut_date)
 
 FED_rate = FED_rate.to_frame()
 
@@ -54,6 +51,9 @@ pd_cut = pd.DataFrame({'Cut': cut_rate, 'Cut_date':cut_date, 'Cut_date_pre':cut_
                        'Date': cut_date, 'Rate':rate}).set_index('Date')
 pd_raise = pd.DataFrame({'Raise': raise_rate, 'Date': raise_date}).set_index('Date')
 
+print(pd_cut)
+
+
 
 cut_1980 = pd_cut.loc['1980-01-01':'1989-12-31']
 cut_1990 = pd_cut.loc['1990-01-01':'1999-12-31']
@@ -61,16 +61,16 @@ cut_2000 = pd_cut.loc['2000-01-01':'2004-12-31']
 cut_2005 = pd_cut.loc['2005-01-01':'2009-12-31']
 cut_2010 = pd_cut.loc['2010-01-01':]
 
-print(cut_2010, pd_cut)
 
 
 
-merge1 = FED_rate.merge(pd_action, how='left', left_index=True, right_index=True)\
-    .merge(pd_cut,  how='left', left_index=True, right_index=True)\
-    .merge(pd_raise,  how='left', left_index=True, right_index=True)
+# merge1 = FED_rate.merge(pd_action, how='left', left_index=True, right_index=True)\
+#     .merge(pd_cut,  how='left', left_index=True, right_index=True)\
+#     .merge(pd_raise,  how='left', left_index=True, right_index=True)
 
 
-stock_data_ = yfinance.download('^GSPC', start='1980-01-01')
+stock_data_ = pd.read_csv('US500.csv', index_col=0)
+stock_data_.index = pd.to_datetime(stock_data_.index)
 stock_data = stock_data_['Close']
 
 # merge2 = pd.merge(stock_data, merge1, how='left', left_index=True, right_index=True)
@@ -148,4 +148,4 @@ for i, text in enumerate(cut_2010['Cut_date']):
 ax1.set_title("S&P500 performance after >=50bp cut, max=100days \n (every cut for 2010s)")
 plt.tight_layout()
 
-plt.show()
+# plt.show()
